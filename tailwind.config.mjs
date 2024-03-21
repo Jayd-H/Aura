@@ -15,7 +15,7 @@ export default {
       }),
 	  fontFamily: {
         'qahiri': ['Qahiri', 'sans-serif'],
-        'concert': ['Concert One', 'cursive'],
+        'concert': ['Concert One', 'sans-serif'],
         'montserrat': ['Montserrat', 'sans-serif'],
       },
 	  fontSize: {
