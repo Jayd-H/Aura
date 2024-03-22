@@ -6,12 +6,20 @@ export default {
 			colors: {
 				'bwhite': '#ECEBF9',
 				'bblack': '#333040',
+        'bgrey': '#F5F5F5',
 				'bblue': '#28A70FF',
 				'bpurple': '#CA6EEB',
 				'bpink': '#FF7BAC',
 			},
+      spacing: {
+        '1/2': '2px',
+        '1/4': '1px',
+      },
 			 backgroundImage: theme => ({
         'aura-gradient': `radial-gradient(circle at top left, ${theme('colors.bpink')}, ${theme('colors.bpurple')})`,
+        'lr-gradient': `linear-gradient(to right, ${theme('colors.bpink')}, ${theme('colors.bpurple')})`,
+        'tb-gradient': `linear-gradient(to bottom, ${theme('colors.bpink')}, ${theme('colors.bpurple')})`,
+        'blue-tb-gradient': `linear-gradient(to bottom, ${theme('colors.bblue')}, ${theme('colors.bpurple')})`,
       }),
 	  fontFamily: {
         'qahiri': ['Qahiri', 'sans-serif'],
