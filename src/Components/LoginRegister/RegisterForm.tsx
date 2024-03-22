@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { InputField } from "./InputField";
-import { Button } from "./Button";
+import { Button } from "../Button";
 import { Divider } from "./Divider";
 import { PasswordStrengthBar } from "./PasswordStrengthBar";
 
@@ -113,7 +113,7 @@ export const RegisterForm: React.FC = () => {
           <p className="text-bblack text-xs mb-1 mt-10">
             By login, you agree to our Terms & Conditions
           </p>
-          <Button text="Register" disabled={!isFormValid()} />
+          <Button text="Register" />
         </div>
         <p className="text-bblack text-sm mt-6 font-semibold">
           Already have an account?{" "}
