@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { InputField } from "./InputField";
 import { Button } from "../Button";
 import { Divider } from "./Divider";
@@ -19,6 +19,17 @@ export const RegisterForm: React.FC = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  useEffect(() => {
+    const isMatch = password === confirmPassword;
+    const isValidLength =
+      email.length >= 5 && password.length >= 5 && confirmPassword.length >= 5;
+    const strength = calculateStrength(password);
+
+    setPasswordError(isMatch ? "" : "Passwords do not match!");
+    setIsButtonDisabled(!(isMatch && isValidLength && strength >= 50));
+  }, [email, password, confirmPassword]);
 
   const isFormValid = () => {
     const strength = calculateStrength(password);
@@ -97,12 +108,18 @@ export const RegisterForm: React.FC = () => {
             password={password}
             strengthCalculator={calculateStrength}
           />
-          {passwordError && (
-            <p className="text-red-500 text-xs italic">{passwordError}</p>
-          )}
+          <div
+            className={`text-red-500 text-sm font-semibold italic mt-1 ${
+              passwordError ? "" : "opacity-0"
+            }`}
+            style={{ minHeight: "20px" }}
+          >
+            {passwordError || " "}
+          </div>
+
           <div className="mt-2">
             <p className="text-bblack text-xs">
-              Emails must be valid, containing an ‘@’ symbol.
+              Emails must be valid, containing an '@' symbol.
             </p>
 
             <p className="text-bblack text-xs -mt-1">
@@ -110,10 +127,14 @@ export const RegisterForm: React.FC = () => {
             </p>
           </div>
 
-          <p className="text-bblack text-xs mb-1 mt-10">
+          <p className="text-bblack text-xs mb-1 mt-1">
             By login, you agree to our Terms & Conditions
           </p>
-          <Button text="Register" />
+          <Button
+            text="Register"
+            navigateTo="/home"
+            disabled={isButtonDisabled}
+          />
         </div>
         <p className="text-bblack text-sm mt-6 font-semibold">
           Already have an account?{" "}
