@@ -19,10 +19,13 @@ export const LoginForm: React.FC = () => {
           <InputField label="Password" type="password" required />
           <div className="flex justify-between items-center mb-14 -mt-3 w-3/4">
             <label className="flex items-center text-bblack text-sm">
-              <input type="checkbox" className="mr-1 form-checkbox bg-bwhite" />
+              <input type="checkbox" className="mx-1 form-checkbox bg-bwhite" />
               Remember Me
             </label>
-            <a href="#" className="text-bblue text-sm hover:underline">
+            <a
+              href="forgotpassword"
+              className="text-bblue text-sm hover:underline mr-1"
+            >
               Forgot Password?
             </a>
           </div>
