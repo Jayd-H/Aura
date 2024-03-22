@@ -13,6 +13,7 @@ export default {
 			},
       spacing: {
         '1/2': '2px',
+        '1/3': '1.5px',
         '1/4': '1px',
       },
 			 backgroundImage: theme => ({
