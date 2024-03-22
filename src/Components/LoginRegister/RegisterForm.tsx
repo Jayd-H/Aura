@@ -6,12 +6,13 @@ import { PasswordStrengthBar } from "./PasswordStrengthBar";
 
 const calculateStrength = (password: string) => {
   const length = password.length;
-  console.log("Length: ", length);
+  let meter = 0;
   if (length === 0) return 0;
-  if (length < 6) return 25;
-  if (length < 10) return 50;
-  if (length < 14) return 75;
-  return 100;
+  meter = length * 6;
+  if (meter > 100) {
+    meter = 100;
+  }
+  return meter;
 };
 
 export const RegisterForm: React.FC = () => {
