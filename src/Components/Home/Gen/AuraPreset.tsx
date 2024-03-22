@@ -63,3 +63,5 @@ export const AuraPreset: React.FC<AuraPresetProps> = ({
     </div>
   );
 };
+
+export default AuraPreset;
