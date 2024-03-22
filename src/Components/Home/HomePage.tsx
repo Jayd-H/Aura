@@ -1,8 +1,11 @@
-export default function LoginPage() {
+import Button from "../Button";
+
+export default function HomePage() {
   return (
     <div className="min-h-screen flex">
-      <div className="flex-1 bg-aura-gradient"></div>
-      <div className="bg-bwhite pr-16 pl-16"></div>
+      <div className="m-auto">
+        <Button text="Get Started" navigateTo="/register" />
+      </div>
     </div>
   );
 }
