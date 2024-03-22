@@ -32,7 +32,8 @@ export const LoginForm: React.FC = () => {
           <p className="text-bblack text-xs mb-1">
             By login, you agree to our Terms & Conditions
           </p>
-          <Button text="Login" navigateTo="home" />
+
+          <Button text="Login" navigateTo="/home" />
         </div>
         <p className="text-bblack text-sm mt-6 font-semibold">
           Don't have an account?{" "}
