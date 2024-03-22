@@ -59,7 +59,7 @@ export const InfoSection: React.FC = () => {
             </div>
             <p className="text-lg">
               If you forget your account password you can click{" "}
-              <a href="register" className="underline hover:no-underline">
+              <a href="forgotpassword" className="underline hover:no-underline">
                 here
               </a>{" "}
               , or select “Forgot password?” on our login form. Clicking this
