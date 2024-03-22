@@ -6,6 +6,8 @@ interface InputFieldProps {
   type: string;
   placeholder?: string;
   required?: boolean;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const focusStyle = `
@@ -19,6 +21,8 @@ export const InputField: React.FC<InputFieldProps> = ({
   type,
   placeholder,
   required,
+  value,
+  onChange,
 }) => {
   const icon =
     type === "email" ? (
@@ -38,6 +42,8 @@ export const InputField: React.FC<InputFieldProps> = ({
             placeholder=" "
             className={`w-full px-4 py-2 rounded-md bg-bwhite font-montserrat text-base ${focusStyle}`}
             required={required}
+            value={value}
+            onChange={onChange}
           />
           <span className="mr-4">{icon}</span>
         </div>
