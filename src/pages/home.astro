@@ -1,5 +1,6 @@
 ---
-import LoginPage from "../Components/LoginRegister/LoginPage";
+import HomePage from "../Components/Home/HomePage";
+import Button from "../Components/Button";
 import "../styles.css";
 ---
 
@@ -18,6 +19,6 @@ import "../styles.css";
     <title>Aura</title>
   </head>
   <body>
-    <LoginPage client:load />
+    <Button client:load text="Get Started" navigateTo="/register" />
   </body>
 </html>
