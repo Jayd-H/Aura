@@ -3,6 +3,15 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+      maxWidth: {
+        '1/4': '25%',
+        '1/2': '50%',
+        '3/4': '75%',
+        '5/6': '83.333333%',
+        '7/8': '87.5%',
+        '7xl': '80rem',
+        '8xl': '88rem',
+      },
 			colors: {
 				'bwhite': '#ECEBF9',
 				'bblack': '#333040',
