@@ -1,7 +1,7 @@
 export const Divider: React.FC = () => {
   return (
-    <div className="w-full mb-4">
-      <hr className="border-t-2 border-bpurple" />
+    <div className="w-1/2 mb-4 mx-auto">
+      <div className="p-1/4 bg-lr-gradient"></div>
     </div>
   );
 };
