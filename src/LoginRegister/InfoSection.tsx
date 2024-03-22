@@ -43,7 +43,7 @@ export const InfoSection: React.FC = () => {
             </div>
             <p className="text-lg">
               You can create an Aura account today using{" "}
-              <a href="register" className="underline hover:no-underline">
+              <a href="register" className="underline hover:font-bold">
                 this
               </a>{" "}
               link, or by selecting “Don’t have an account? Register” below the
@@ -59,9 +59,9 @@ export const InfoSection: React.FC = () => {
             </div>
             <p className="text-lg">
               If you forget your account password you can click{" "}
-              <a href="forgotpassword" className="underline hover:no-underline">
+              <a href="forgotpassword" className="underline hover:font-bold">
                 here
-              </a>{" "}
+              </a>
               , or select “Forgot password?” on our login form. Clicking this
               will take you to a recovery page where you can enter your email
               address, and request a password reset link to be sent to your
