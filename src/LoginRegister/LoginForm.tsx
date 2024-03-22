@@ -7,17 +7,17 @@ export const LoginForm: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen font-montserrat">
       <div className="w-full max-w-md text-center">
-        <h2 className="text-bpurple text-3xl mb-2 font-semibold">
+        <h2 className="text-gradient text-3xl mb-2 font-semibold">
           Welcome Back
         </h2>
         <Divider />
-        <p className="text-bblack text-lg font-semibold mb-16">
+        <p className="text-bblack text-lg font-semibold mb-6 mr-20 ml-20">
           Please sign in with your Aura account
         </p>
         <div className="flex flex-col items-center w-full">
           <InputField label="Email" type="email" required />
           <InputField label="Password" type="password" required />
-          <div className="flex justify-between items-center mb-10 -mt-3 w-3/4">
+          <div className="flex justify-between items-center mb-14 -mt-3 w-3/4">
             <label className="flex items-center text-bblack text-sm">
               <input type="checkbox" className="mr-1 form-checkbox bg-bwhite" />
               Remember Me
