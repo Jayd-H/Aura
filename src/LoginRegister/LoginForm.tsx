@@ -22,7 +22,7 @@ export const LoginForm: React.FC = () => {
               <input type="checkbox" className="mr-1 form-checkbox bg-bwhite" />
               Remember Me
             </label>
-            <a href="#" className="text-bpurple text-sm hover:underline">
+            <a href="#" className="text-bblue text-sm hover:underline">
               Forgot Password?
             </a>
           </div>
