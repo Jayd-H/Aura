@@ -7,11 +7,7 @@ type MiniInfoCardProps = {
   unit?: string;
 };
 
-const WeatherMiniCard: React.FC<MiniInfoCardProps> = ({
-  label,
-  value,
-  unit,
-}) => {
+const PowerMiniCard: React.FC<MiniInfoCardProps> = ({ label, value, unit }) => {
   return (
     <div className="bg-white rounded-lg p-4 shadow-md flex items-center">
       <ElectricalServicesOutlined className="text-gray-500 text-xl" />
@@ -26,4 +22,4 @@ const WeatherMiniCard: React.FC<MiniInfoCardProps> = ({
   );
 };
 
-export default WeatherMiniCard;
+export default PowerMiniCard;
