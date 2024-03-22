@@ -8,7 +8,7 @@ export default function LoginPage() {
       <div className="flex-1 bg-aura-gradient">
         <InfoSection />
       </div>
-      <div className="w-2/5 bg-bwhite p-12">
+      <div className="bg-bwhite pr-16 pl-16">
         <LoginForm />
       </div>
     </div>
