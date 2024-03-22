@@ -11,8 +11,8 @@ export const RegisterForm: React.FC = () => {
           Create Account
         </h2>
         <Divider />
-        <p className="text-bblack text-lg font-semibold mb-6 mr-20 ml-20">
-          Welcome to Aura! Let's get you started
+        <p className="text-bblack text-lg mb-6 mr-20 ml-20">
+          <i>Welcome to Aura! Let's get you started</i>
         </p>
         <div className="flex flex-col items-center w-full">
           <InputField label="Email" type="email" required />
@@ -34,9 +34,9 @@ export const RegisterForm: React.FC = () => {
           <Button text="Login" />
         </div>
         <p className="text-bblack text-sm mt-6 font-semibold">
-          Don't Have an account?{" "}
-          <a href="#" className="text-bpurple hover:underline">
-            Register
+          Already have an account?{" "}
+          <a href="/" className="text-bpurple hover:underline">
+            Log In
           </a>
         </p>
       </div>
