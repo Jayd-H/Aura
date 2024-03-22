@@ -1,21 +1,26 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 interface ButtonProps {
   text: string;
   navigateTo?: string;
+  disabled?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ({ text, navigateTo }) => {
-  const navigate = useNavigate();
-
+export const Button: React.FC<ButtonProps> = ({
+  text,
+  navigateTo,
+  disabled,
+}) => {
   const handleClick = () => {
-    if (navigateTo) navigate(navigateTo);
+    if (navigateTo) {
+      window.location.href = navigateTo;
+    }
   };
 
   return (
     <button
       onClick={handleClick}
+      disabled={disabled}
       className="bg-bt-gradient text-bwhite py-2 px-4 rounded-lg font-montserrat text-lg font-semibold hover:bg-tb-gradient-blue w-3/4 shadow-inner"
     >
       {text}
