@@ -13,8 +13,8 @@ export const PasswordStrengthBar: React.FC<{
       </label>
       <div className={`bg-tb-gradient rounded-md p-1/2`}>
         <div className="flex items-center bg-bwhite rounded-md">
-          <div className="w-full pt-2 rounded-md font-montserrat text-base">
-            <div className="h-2 rounded-full">
+          <div className="w-full rounded-md font-montserrat text-base">
+            <div className="h-3 rounded-full">
               <div
                 className="h-full bg-rl-gradient-blue rounded-full"
                 style={{ width: `${strength}%` }}
