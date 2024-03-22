@@ -28,7 +28,7 @@ export const InputField: React.FC<InputFieldProps> = ({
     type === "email" ? (
       <EnvelopeIcon className="w-5 h-5 text-bblack" />
     ) : (
-      <LockClosedIcon className="w-5 h-5 text-bblack " />
+      <LockClosedIcon className="w-5 h-5 text-bblack" />
     );
 
   return (
