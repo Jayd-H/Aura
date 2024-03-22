@@ -22,8 +22,8 @@ export const InputField: React.FC<InputFieldProps> = ({
     );
 
   return (
-    <div className="relative w-3/4 mb-4">
-      <div className="bg-gradient-to-r from-bpink to-bpurple rounded-md p-1">
+    <div className="relative w-3/4 mb-4 mt-6">
+      <div className="bg-lr-gradient rounded-md p-1/2">
         <div className="flex items-center bg-bwhite rounded-md">
           <input
             type={type}
