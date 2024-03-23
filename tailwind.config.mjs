@@ -25,6 +25,12 @@ export default {
         '1/3': '1.5px',
         '1/4': '1px',
       },
+     boxShadow: {
+        'inner-lg': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06), inset 0 2px 6px 0 rgba(0, 0, 0, 0.1)', 
+        'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)', 
+        'inner': 'inset 0 0 4px rgba(0, 0, 0, 0.25)', // Simulates inner shadow
+        'even': '0 0 6px rgba(0, 0, 0, 0.25)',
+     },
 			 backgroundImage: theme => ({
         'aura-gradient': `radial-gradient(circle at top left, ${theme('colors.bpink')}, ${theme('colors.bpurple')})`,
         'lr-gradient': `linear-gradient(to right, ${theme('colors.bpink')}, ${theme('colors.bpurple')})`,
@@ -35,6 +41,11 @@ export default {
         'tb-gradient-blue': `linear-gradient(to bottom, ${theme('colors.bblue')}, ${theme('colors.bpurple')})`,
         'bt-gradient-blue': `linear-gradient(to top, ${theme('colors.bblue')}, ${theme('colors.bpurple')})`,
         'rl-gradient-blue': `linear-gradient(to left, ${theme('colors.bblue')}, ${theme('colors.bpurple')})`,
+        'tb-gradient-white': `linear-gradient(to bottom, ${theme('colors.bwhite')}, ${theme('colors.bblack')})`,
+        'gradient-border': 'linear-gradient(to bottom, var(--color-bwhite), var(--color-bblack))',
+      }),
+      borderColor: theme => ({
+        'gradient': theme('backgroundImage.gradient-border'),
       }),
 	  fontFamily: {
         'qahiri': ['Qahiri', 'sans-serif'],
@@ -53,6 +64,7 @@ export default {
         '4xl': ['3.0625rem', { lineHeight: '1' }], // 49px
         '5xl': ['3.8125rem', { lineHeight: '1' }], // 61px
 	  },
+    
 		},
 	},
 	plugins: [
