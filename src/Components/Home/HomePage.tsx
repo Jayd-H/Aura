@@ -20,12 +20,12 @@ export default function HomePage() {
             room="Office Space"
             time="2"
             hue="Cool"
-            power={false}
+            power={true}
             temperature="28"
             backgroundImage="../../AuraImages/focustime.png"
           />
           <AuraPreset
-            auraName="Morning Wake-Up"
+            auraName="Morning Wake"
             room="Bedroom"
             time="1"
             hue="Warm"
@@ -41,15 +41,6 @@ export default function HomePage() {
             power={false}
             temperature="33"
             backgroundImage="../../AuraImages/cozyevening.png"
-          />
-          <AuraPreset
-            auraName="Movie Night"
-            room="Living Room"
-            time="2"
-            hue="Warm"
-            power={false}
-            temperature="34"
-            backgroundImage="../../AuraImages/movienight.png"
           />
         </div>
         <div>
