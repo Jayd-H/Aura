@@ -9,4 +9,22 @@
         background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+    .grid-cols-2{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    
+    }
+}
+
+@layer components {
+    .mini-card {
+        width: 180px;
+        height: 120px;
+    }
+}
+
+
+
+.min-w-card {
+    min-width: 250px;
+    max-width: 300px;
 }
