@@ -1,10 +1,13 @@
 import React from "react";
 import {
-  ShoppingCartIcon,
-  SunIcon,
-  ClockIcon,
-  PowerIcon,
-} from "@heroicons/react/24/outline";
+  EditOutlined,
+  ScheduleOutlined,
+  LightbulbOutlined,
+  ThermostatOutlined,
+  PowerSettingsNewRounded,
+} from "@mui/icons-material";
+
+import { PowerIcon } from "@heroicons/react/24/outline";
 
 type AuraPresetProps = {
   auraName: string;
@@ -26,46 +29,52 @@ export const AuraPreset: React.FC<AuraPresetProps> = ({
   backgroundImage,
 }) => {
   return (
-    <div className="relative w-80 rounded-xl overflow-hidden text-bwhite border-2 font-montserrat border-red-300">
+    <div className="relative w-72 h-40 rounded-xl font-montserrat bg-cover bg-center shadow-even border-gradient text-bwhite overflow-hidden">
       <img
         src={backgroundImage}
         alt={`${auraName} background`}
-        className="w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute" />
-      <div className="absolute top-2 left-4 flex items-center space-x-2">
+      {/* Gradient overlay for the top part */}
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-bblack to-transparent"></div>
+
+      {/* Title and icons */}
+      <div className="absolute top-1 left-3 right-4 flex justify-between items-center">
         <h2 className="text-xl font-bold">{auraName}</h2>
-        <ShoppingCartIcon className="w-6 h-6" />
-        <ShoppingCartIcon className="w-6 h-6" />
+        <EditOutlined className="w-6 h-6 -mr-1" />
       </div>
-      <div className="absolute top-9 left-4">
-        <p className="text-lg">{room}</p>
+
+      {/* Room name */}
+      <div className="absolute top-7 left-3">
+        <p className="text-lg ">{room}</p>
       </div>
-      <div className="absolute bottom-2 left-0 right-0 mx-auto flex justify-center items-center text-sm space-x-8">
+
+      {/* Semi-transparent background for bottom row */}
+      <div className="absolute bottom-0 left-0 right-0 mx-auto flex justify-center items-center text-sm space-x-8 bg-black bg-opacity-50 p-2">
         <div className="flex items-center space-x-1">
-          <ClockIcon className="w-5 h-5" />
-          <span className="">{time} Hours</span>
+          <ScheduleOutlined className="w-4 h-4" />
+          <span className="">
+            {time} {time == "1" ? "Hr" : "Hrs"}
+          </span>
         </div>
         <div className="flex items-center space-x-1">
-          {hue === "Cool" ? (
-            <SunIcon className="w-5 h-5" />
-          ) : (
-            <ShoppingCartIcon className="w-5 h-5" />
-          )}
+          <LightbulbOutlined className="w-4 h-4" />
           <span className="">{hue} Hue</span>
         </div>
         <div className="flex items-center space-x-1">
-          <ShoppingCartIcon className="w-5 h-5" />
-          <span className="">{temperature}°C </span>
+          <ThermostatOutlined className="w-4 h-4" />
+          <span className="">{temperature}°C</span>
         </div>
       </div>
+
+      {/* Power button */}
       <button
-        className={`absolute bottom-8 right-2 rounded-full p-3 ${
-          power ? "text-green-400" : "text-bwhite"
+        className={`absolute bottom-7 right-[-5px] rounded-full p-3 ${
+          power ? "text-green-400" : ""
         }`}
         aria-label={power ? "Turn off" : "Turn on"}
       >
-        <PowerIcon className="w-8 h-8" />
+        <PowerIcon className="w-10 h-10 stroke-[3px] svg-drop-shadow" />
       </button>
     </div>
   );
