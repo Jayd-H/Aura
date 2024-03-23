@@ -15,7 +15,7 @@ export default {
 			colors: {
 				'bwhite': '#ECEBF9',
 				'bblack': '#333040',
-        'bgrey': '#F5F5F5',
+        'bgrey': '#DDDCEE',
 				'bblue': '#8A70FF',
 				'bpurple': '#CA6EEB',
 				'bpink': '#FF7BAC',
@@ -44,7 +44,8 @@ export default {
 	  fontSize: {
 		'xs': ['0.625rem', { lineHeight: '1rem' }], // 10px
         'sm': ['0.8125rem', { lineHeight: '1rem' }], // 13px
-        'base': ['1rem', { lineHeight: '1.5rem' }], // 16px
+        'tiny': ['0.9375rem', { lineHeight: '1.25rem' }], // 15px
+        'md': ['1rem', { lineHeight: '1.5rem' }], // 16px
         'lg': ['1.25rem', { lineHeight: '1.75rem' }], // 20px
         'xl': ['1.5625rem', { lineHeight: '2rem' }], // 25px
         '2xl': ['1.9375rem', { lineHeight: '2.25rem' }], // 31px
