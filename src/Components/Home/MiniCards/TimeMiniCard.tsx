@@ -1,23 +1,21 @@
 import React from "react";
-import { ElectricalServicesOutlined } from "@mui/icons-material";
+import { AlarmOutlined } from "@mui/icons-material";
 
 type MiniInfoCardProps = {
-  label: string;
   value: string;
   unit?: string;
 };
 
-const TimeMiniCard: React.FC<MiniInfoCardProps> = ({ label, value, unit }) => {
+const TimeMiniCard: React.FC<MiniInfoCardProps> = ({ value, unit }) => {
   return (
-    <div className="bg-white rounded-lg p-4 shadow-md flex items-center">
-      <ElectricalServicesOutlined className="text-gray-500 text-xl" />
-      <div className="ml-2">
-        <p className="text-sm font-semibold">{label}</p>
-        <p className="text-lg">
-          {value}
-          {unit}
-        </p>
+    <div className="mini-card flex-grow min-w-0 flex flex-col items-center font-montserrat text-bblack border-dashed border-2 border-bblack rounded-2xl p-2">
+      <div className="w-full flex justify-between items-center">
+        <AlarmOutlined className="text-md ml-1" />
       </div>
+      <div className="flex items-center justify-center">
+        <p className="text-2xl font-bold mt-1">{value}</p>
+      </div>
+      <p className="text-lg font-semibold text-center mb-5 mx-12">{unit}</p>
     </div>
   );
 };
