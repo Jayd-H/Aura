@@ -1,6 +1,7 @@
 import AuraPreset from "./Gen/AuraPreset";
 import NavBar from "./Gen/Navbar";
 import GreetingCard from "./Gen/GreetingCard";
+import MiniCardRow from "./MiniCards/MiniCardRow";
 
 export default function HomePage() {
   return (
@@ -50,6 +51,12 @@ export default function HomePage() {
             temperature="34"
             backgroundImage="../../AuraImages/movienight.png"
           />
+        </div>
+        <div>
+          {/* Container for mini cards */}
+          <div className="flex">
+            <MiniCardRow />
+          </div>
         </div>
       </div>
     </div>
