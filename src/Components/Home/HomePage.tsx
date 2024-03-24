@@ -3,6 +3,7 @@ import NavBar from "./Gen/Navbar";
 import GreetingCard from "./Gen/GreetingCard";
 import MiniCardRow from "./MiniCards/MiniCardRow";
 import PowerConsumptionChart from "./Savings/PowerConsumptionChart";
+import SavingsCard from "./Savings/SavingsCard";
 
 export default function HomePage() {
   return (
@@ -44,14 +45,23 @@ export default function HomePage() {
             backgroundImage="../../AuraImages/cozyevening.png"
           />
         </div>
-        {/* Container for mini cards and power consumption chart */}
-        <div className="flex flex-wrap items-start space-x-4">
+        {/* Container for mini cards, power consumption chart, and savings card */}
+        <div className="flex flex-wrap items-start space-x-4 mt-2">
           {/* Container for mini cards */}
           <MiniCardRow />
 
           {/* Container for power consumption chart */}
           <div className="mt-4 flex-shrink-0">
             <PowerConsumptionChart week="Sat 9th - Fri 15th March" />
+          </div>
+          {/* Container for savings card */}
+          <div className="flex-shrink-0">
+            <SavingsCard
+              title="Saved so far"
+              value={2332}
+              unit="kWj"
+              money={220}
+            />
           </div>
         </div>
       </div>
