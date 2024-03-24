@@ -29,7 +29,7 @@ export const AuraPreset: React.FC<AuraPresetProps> = ({
   backgroundImage,
 }) => {
   return (
-    <div className="relative w-72 h-40 rounded-xl font-montserrat bg-cover bg-center shadow-even border-gradient text-bwhite overflow-hidden">
+    <div className="relative w-80 h-44 rounded-xl font-montserrat bg-cover bg-center shadow-even border-gradient text-bwhite overflow-hidden">
       <img
         src={backgroundImage}
         alt={`${auraName} background`}
