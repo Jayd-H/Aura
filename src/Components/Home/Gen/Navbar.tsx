@@ -1,5 +1,4 @@
 import React from "react";
-import { CogIcon } from "@heroicons/react/24/solid";
 import { SettingsOutlined } from "@mui/icons-material";
 
 const NavBar: React.FC<{ currentTime: string }> = ({ currentTime }) => {

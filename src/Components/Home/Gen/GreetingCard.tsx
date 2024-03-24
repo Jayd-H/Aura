@@ -1,5 +1,4 @@
 import React from "react";
-import { CalendarMonthOutlined } from "@mui/icons-material";
 
 type GreetingCardProps = {
   greeting: string;
