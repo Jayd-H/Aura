@@ -15,7 +15,8 @@ export default {
 			colors: {
 				'bwhite': '#ECEBF9',
 				'bblack': '#333040',
-        'bgrey': '#DDDCEE',
+        'bgrey': '##CA6EEB',
+        'bdarkgrey': '#555263',
 				'bblue': '#8A70FF',
 				'bpurple': '#CA6EEB',
 				'bpink': '#FF7BAC',
