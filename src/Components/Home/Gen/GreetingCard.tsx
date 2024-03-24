@@ -15,7 +15,7 @@ export const GreetingCard: React.FC<GreetingCardProps> = ({
       <h1 className="text-3xl font-bold text-gradient pb-2 -ml-5 mb-2">
         {greeting}
       </h1>
-      <p className="text-lg -mb-6 -ml-5">{subtext}</p>
+      <p className="text-lg -ml-5 -mt-4">{subtext}</p>
     </div>
   );
 };
