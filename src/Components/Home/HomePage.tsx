@@ -2,6 +2,7 @@ import AuraPreset from "./Gen/AuraPreset";
 import NavBar from "./Gen/Navbar";
 import GreetingCard from "./Gen/GreetingCard";
 import MiniCardRow from "./MiniCards/MiniCardRow";
+import PowerConsumptionChart from "./Savings/PowerConsumptionChart";
 
 export default function HomePage() {
   return (
@@ -43,10 +44,14 @@ export default function HomePage() {
             backgroundImage="../../AuraImages/cozyevening.png"
           />
         </div>
-        <div>
+        {/* Container for mini cards and power consumption chart */}
+        <div className="flex flex-wrap items-start space-x-4">
           {/* Container for mini cards */}
-          <div className="flex">
-            <MiniCardRow />
+          <MiniCardRow />
+
+          {/* Container for power consumption chart */}
+          <div className="mt-4 flex-shrink-0">
+            <PowerConsumptionChart week="Sat 9th - Fri 15th March" />
           </div>
         </div>
       </div>
