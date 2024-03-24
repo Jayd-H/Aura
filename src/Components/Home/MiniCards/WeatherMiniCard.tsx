@@ -13,9 +13,11 @@ const WeatherMiniCard: React.FC<MiniInfoCardProps> = ({ value, unit }) => {
         <CloudOutlined className="text-md ml-1" />
       </div>
       <div className="flex items-center justify-center">
-        <p className="text-xl font-bold">{value}°</p>
+        <p className="text-xl font-bold font-comfortaa">{value}°</p>
       </div>
-      <p className="text-md font-semibold text-center mb-5 mx-10">{unit}</p>
+      <p className="text-md font-semibold text-center mb-5 mx-10 italic">
+        {unit}
+      </p>
     </div>
   );
 };

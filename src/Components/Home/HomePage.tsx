@@ -15,7 +15,7 @@ export default function HomePage() {
           greeting="Good Morning, Jayden"
           subtext="How would you like to start your day?"
         />
-        <div className="flex overflow-x-auto py-2 space-x-4">
+        <div className="flex overflow-x-auto py-6 space-x-4">
           {/* Container for horizontal presets */}
           <AuraPreset
             auraName="Focus Time"

@@ -20,16 +20,16 @@ const SavingsCard: React.FC<SavingsCardProps> = ({
   return (
     <div className="savings-card flex-grow min-w-0 flex flex-col items-center font-montserrat text-bblack border-dashed border-2 border-bblack rounded-2xl p-2">
       <div className="flex items-center justify-center w-full mt-2">
-        <WindPowerOutlined className="h-8 w-8 mt-1 mr-2" />
-        <p className="text-xl font-bold mt-1 ">
+        <WindPowerOutlined className="h-6 w-6 mr-2" />
+        <p className="text-xl font-bold mt-1 font-comfortaa">
           {value} {unit}
         </p>
       </div>
       <p className="text-md -mt-1 italic">{title}</p>
       <CreditScoreOutlined className="h-12 w-12 mt-2" />
       <div className="flex items-center justify-center w-full mt-2 ">
-        <SavingsOutlined className="h-8 w-8 mt-1 mr-2" />
-        <p className="text-xl font-bold">~ £{money}</p>
+        <SavingsOutlined className="h-6 w-6 mr-2" />
+        <p className="text-xl font-bold font-comfortaa">~ £{money}</p>
       </div>
       <p className="text-md text-center italic">Saved so far</p>
     </div>

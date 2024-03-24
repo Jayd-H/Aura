@@ -39,13 +39,13 @@ const PowerConsumptionChart: React.FC<PowerConsumptionChartProps> = ({
   return (
     <div className="flex flex-col -mt-4 font-montserrat -ml-5 text-bblack">
       <div className="flex items-center ml-9">
-        <BoltOutlined className="text-2xl mr-3 -mb-3" />{" "}
-        <h1 className="text-lg font-semibold ">
+        <BoltOutlined className="text-2xl mr-3 -mb-2" />{" "}
+        <h1 className="text-lg font-semibold font-comfortaa  ">
           Power Consumption <span className="text-md">(kWjh)</span>
         </h1>
       </div>
-      <p className="text-sm italic font-semibold ml-20 -mb-6">{week}</p>
-      <ResponsiveContainer width={450} height={200}>
+      <p className="text-sm italic font-semibold ml-20 -mt-1 -mb-5">{week}</p>
+      <ResponsiveContainer width={470} height={200}>
         <BarChart
           data={data}
           margin={{

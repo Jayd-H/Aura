@@ -21,9 +21,11 @@ const DateMiniCard: React.FC<MiniInfoCardProps> = ({
         <span className="text-md font-semibold mr-1 ">{month}</span>
       </div>
       <div className="flex items-center justify-center">
-        <p className="text-xl font-bold -mt-2">{day}</p>
+        <p className="text-xl -mt-2 font-semibold font-comfortaa">{day}</p>
       </div>
-      <p className="text-md font-semibold text-center mb-5 mx-10">{value}</p>
+      <p className="text-md font-semibold text-center mb-5 mx-10 italic">
+        {value}
+      </p>
     </div>
   );
 };

@@ -52,6 +52,8 @@ export default {
         'qahiri': ['Qahiri', 'sans-serif'],
         'concert': ['Concert One', 'sans-serif'],
         'montserrat': ['Montserrat', 'sans-serif'],
+        'comfortaa': ['Comfortaa', 'cursive'],
+        'concert': ['Concert One', 'sans-serif'],
       },
 	  fontSize: {
 		'xs': ['0.625rem', { lineHeight: '1rem' }], // 10px

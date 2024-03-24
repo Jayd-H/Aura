@@ -7,7 +7,7 @@ export const LoginForm: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen font-montserrat">
       <div className="w-full max-w-md text-center">
-        <h2 className="text-gradient text-3xl mb-2 font-semibold">
+        <h2 className="text-gradient text-3xl mb-1 font-semibold font-comfortaa">
           Welcome Back
         </h2>
         <Divider />
