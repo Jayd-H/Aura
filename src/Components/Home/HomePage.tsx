@@ -4,6 +4,7 @@ import GreetingCard from "./Gen/GreetingCard";
 import MiniCardRow from "./MiniCards/MiniCardRow";
 import PowerConsumptionChart from "./Savings/PowerConsumptionChart";
 import SavingsCard from "./Savings/SavingsCard";
+import RoomSelector from "./RoomSelectorRow/RoomSelector";
 
 export default function HomePage() {
   return (
@@ -63,6 +64,9 @@ export default function HomePage() {
               money={220}
             />
           </div>
+        </div>
+        <div className="room-selector-wrapper mt-6">
+          <RoomSelector />
         </div>
       </div>
     </div>
