@@ -43,10 +43,10 @@ export default {
         'bt-gradient-blue': `linear-gradient(to top, ${theme('colors.bblue')}, ${theme('colors.bpurple')})`,
         'rl-gradient-blue': `linear-gradient(to left, ${theme('colors.bblue')}, ${theme('colors.bpurple')})`,
         'tb-gradient-white': `linear-gradient(to bottom, ${theme('colors.bwhite')}, ${theme('colors.bblack')})`,
-        'gradient-border': 'linear-gradient(to bottom, var(--color-bwhite), var(--color-bblack))',
+        'gradient-border': 'linear-gradient(to right, var(--color-bpink), var(--color-bpurple))',
       }),
       borderColor: theme => ({
-        'gradient': theme('backgroundImage.gradient-border'),
+        'gradient': theme('backgroundImage.lr-gradient'),
       }),
 	  fontFamily: {
         'qahiri': ['Qahiri', 'sans-serif'],
