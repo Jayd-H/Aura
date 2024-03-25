@@ -27,7 +27,7 @@ const RoomSelector: React.FC = () => {
     { name: "Office Space", temperature: 24, lights: [] },
     { name: "Bathroom", temperature: 19, lights: [] },
     { name: "Balcony", temperature: 18, lights: [] },
-    { name: "Balcony", temperature: 18, lights: [] },
+    { name: "Outdoor Shed", temperature: 18, lights: [] },
   ];
 
   const handleRoomSelection = (room: Room) => {
@@ -43,7 +43,7 @@ const RoomSelector: React.FC = () => {
           <RoomSelectButton
             key={room.name}
             room={room}
-            isSelected={selectedRoom === room}
+            isSelected={selectedRoom?.name === room.name}
             onClick={handleRoomSelection}
           />
         ))}
@@ -51,18 +51,17 @@ const RoomSelector: React.FC = () => {
       <button
         data-tip="Add Room"
         style={{
-          width: "30px",
-          height: "30px",
+          width: "25px",
+          height: "25px",
           position: "absolute",
-          right: -50,
-          top: "50%",
-          transform: "translateY(-50%)",
+          right: -45,
+          top: 25,
         }}
-        className="room-select-button border-full bg-lr-gradient text-bwhite rounded-full"
+        className="border-full bg-lr-gradient items-center justify-center flex text-bwhite rounded-full"
         onClick={handleButtonClick}
         title="Add Room"
       >
-        <AddOutlined />
+        <AddOutlined className="w-6 h-6" />
       </button>
     </div>
   );
