@@ -5,6 +5,7 @@ import MiniCardRow from "./MiniCards/MiniCardRow";
 import PowerConsumptionChart from "./Savings/PowerConsumptionChart";
 import SavingsCard from "./Savings/SavingsCard";
 import RoomSelector from "./RoomSelectorRow/RoomSelector";
+import AuraManagerButton from "./Gen/AuraManagerCard";
 
 export default function HomePage() {
   return (
@@ -65,8 +66,11 @@ export default function HomePage() {
             />
           </div>
         </div>
-        <div className="room-selector-wrapper mt-6">
-          <RoomSelector />
+        <div className="flex mt-6">
+          <div className="room-selector-wrapper">
+            <RoomSelector />
+          </div>
+          <AuraManagerButton />
         </div>
       </div>
     </div>
