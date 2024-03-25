@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import RoomSelectButton from "./RoomSelectButton";
-import AddRoomButton from "./AddRoomButton";
+import { AddOutlined } from "@mui/icons-material";
 
 export interface Room {
   name: string;
@@ -34,17 +34,36 @@ const RoomSelector: React.FC = () => {
     setSelectedRoom(room);
   };
 
+  const handleButtonClick = () => {};
+
   return (
-    <div className="room-selector-container">
-      {rooms.map((room) => (
-        <RoomSelectButton
-          key={room.name}
-          room={room}
-          isSelected={selectedRoom === room}
-          onClick={handleRoomSelection}
-        />
-      ))}
-      <AddRoomButton />
+    <div style={{ position: "relative" }}>
+      <div className="room-selector-container">
+        {rooms.map((room) => (
+          <RoomSelectButton
+            key={room.name}
+            room={room}
+            isSelected={selectedRoom === room}
+            onClick={handleRoomSelection}
+          />
+        ))}
+      </div>
+      <button
+        data-tip="Add Room"
+        style={{
+          width: "30px",
+          height: "30px",
+          position: "absolute",
+          right: -50,
+          top: "50%",
+          transform: "translateY(-50%)",
+        }}
+        className="room-select-button border-full bg-lr-gradient text-bwhite rounded-full"
+        onClick={handleButtonClick}
+        title="Add Room"
+      >
+        <AddOutlined />
+      </button>
     </div>
   );
 };
