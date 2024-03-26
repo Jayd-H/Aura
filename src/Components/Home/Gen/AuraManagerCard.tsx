@@ -3,7 +3,7 @@ import { AddBoxOutlined } from "@mui/icons-material";
 
 const AuraManagerButton: React.FC = () => {
   const handleButtonClick = () => {
-    // Logic goes here
+    // TODO Logic goes here
   };
 
   return (
