@@ -20,6 +20,8 @@ export default {
 				'bblue': '#8A70FF',
 				'bpurple': '#CA6EEB',
 				'bpink': '#FF7BAC',
+        'borange': '#FC5454',
+        'byellow': '#FFB88C',
 			},
       spacing: {
         '1/2': '2px',
@@ -43,7 +45,7 @@ export default {
         'bt-gradient-blue': `linear-gradient(to top, ${theme('colors.bblue')}, ${theme('colors.bpurple')})`,
         'rl-gradient-blue': `linear-gradient(to left, ${theme('colors.bblue')}, ${theme('colors.bpurple')})`,
         'tb-gradient-white': `linear-gradient(to bottom, ${theme('colors.bwhite')}, ${theme('colors.bblack')})`,
-        'gradient-border': 'linear-gradient(to right, var(--color-bpink), var(--color-bpurple))',
+        'temp-gradient': `linear-gradient(to bottom, ${theme('colors.borange')}, ${theme('colors.byellow')})`,
       }),
       borderColor: theme => ({
         'gradient': theme('backgroundImage.lr-gradient'),
