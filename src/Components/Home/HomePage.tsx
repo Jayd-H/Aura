@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 import AuraPreset from "./Gen/AuraPreset";
 import NavBar from "./Gen/Navbar";
 import GreetingCard from "./Gen/GreetingCard";
@@ -6,8 +8,46 @@ import PowerConsumptionChart from "./Savings/PowerConsumptionChart";
 import SavingsCard from "./Savings/SavingsCard";
 import RoomSelector from "./RoomSelectorRow/RoomSelector";
 import AuraManagerButton from "./Gen/AuraManagerCard";
+import RoomCard from "./RoomProperties/RoomCard";
+
+export interface Room {
+  name: string;
+  temperature: number;
+  lights: Light[];
+}
+
+export interface Light {
+  name: string;
+  wattage: number;
+  isOn: boolean;
+  color: string;
+}
 
 export default function HomePage() {
+  const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
+  const [rooms, setRooms] = useState<Room[]>([
+    { name: "Living Room", temperature: 22, lights: [] },
+    { name: "Master Bedroom", temperature: 20, lights: [] },
+    { name: "Guest Bedroom", temperature: 21, lights: [] },
+    { name: "Kitchen", temperature: 23, lights: [] },
+    { name: "Office Space", temperature: 24, lights: [] },
+    { name: "Bathroom", temperature: 19, lights: [] },
+    { name: "Balcony", temperature: 18, lights: [] },
+    { name: "Outdoor Shed", temperature: 18, lights: [] },
+  ]);
+
+  const handleRoomTemperatureChange = (roomName: string, newTemp: number) => {
+    setRooms((prevRooms) =>
+      prevRooms.map((room) =>
+        room.name === roomName ? { ...room, temperature: newTemp } : room
+      )
+    );
+  };
+
+  const handleRoomSelection = (room: Room) => {
+    setSelectedRoom(room);
+  };
+
   return (
     <div className="flex flex-col">
       <NavBar currentTime="09:41 AM" />
@@ -68,9 +108,17 @@ export default function HomePage() {
         </div>
         <div className="flex mt-6">
           <div className="room-selector-wrapper">
-            <RoomSelector />
+            <RoomSelector onRoomSelect={handleRoomSelection} rooms={rooms} />
           </div>
           <AuraManagerButton />
+        </div>
+        <div className="mt-6">
+          {selectedRoom && (
+            <RoomCard
+              room={selectedRoom}
+              onTemperatureChange={handleRoomTemperatureChange}
+            />
+          )}
         </div>
       </div>
     </div>
