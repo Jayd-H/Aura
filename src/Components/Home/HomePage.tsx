@@ -87,8 +87,7 @@ export default function HomePage() {
             backgroundImage="../../AuraImages/cozyevening.png"
           />
         </div>
-        {/* Container for mini cards, power consumption chart, and savings card */}
-        <div className="flex flex-wrap items-start space-x-4 mt-2">
+        <div className="ribbon flex flex-wrap items-start space-x-4 mt-2">
           {/* Container for mini cards */}
           <MiniCardRow />
 
