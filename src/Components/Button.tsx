@@ -1,4 +1,5 @@
 import React from "react";
+import { motion, spring } from "framer-motion";
 
 interface ButtonProps {
   text: string;
@@ -18,13 +19,16 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   return (
-    <button
+    <motion.button
       onClick={handleClick}
       disabled={disabled}
-      className="bg-bt-gradient text-bwhite py-2 px-4 rounded-lg font-montserrat text-lg font-semibold hover:bg-tb-gradient-blue w-3/4 shadow-inner"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.9 }}
+      transition={{ duration: 0.01 }}
+      className="bg-bt-gradient text-bwhite py-2 px-4 rounded-lg font-montserrat text-lg font-semibold hover:bg-tb-gradient-blue w-3/4 shadow-inner transition duration-300 ease-in-out"
     >
       {text}
-    </button>
+    </motion.button>
   );
 };
 
