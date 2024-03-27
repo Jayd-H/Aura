@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import type { Light, Room } from "../../types";
 import {
   LightbulbOutlined,
@@ -6,7 +6,6 @@ import {
   FlashOffOutlined,
   PowerSettingsNewOutlined,
 } from "@mui/icons-material";
-
 import LightIcon from "./LightIcon";
 import LightButton from "./LightButton";
 
@@ -25,9 +24,15 @@ const LightComponent: React.FC<LightProps> = ({
   isSelected,
   onSelectLight,
 }) => {
-  const lightColor = light.isOn ? light.color : "#D3D3D3";
+  const [lightColor, setLightColor] = useState(
+    light.isOn ? light.color : "#D3D3D3"
+  );
   const textColor =
-    light.isOn && isColorDark(light.color) ? "#ECEBF9" : "#333040";
+    light.isOn && isColorDark(lightColor) ? "#ECEBF9" : "#333040";
+
+  useEffect(() => {
+    setLightColor(light.isOn ? light.color : "#D3D3D3");
+  }, [light]);
 
   const lightStyle = {
     backgroundImage: `radial-gradient(circle at 50% 100%, ${lightColor}80, transparent)`,
