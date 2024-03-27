@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 
-import AuraPreset from "./Gen/AuraPreset";
+import AuraPreset from "./AuraPreset/AuraPreset";
 import NavBar from "./Gen/Navbar";
 import GreetingCard from "./Gen/GreetingCard";
 import MiniCardRow from "./MiniCards/MiniCardRow";
 import PowerConsumptionChart from "./Savings/PowerConsumptionChart";
 import SavingsCard from "./Savings/SavingsCard";
 import RoomSelector from "./RoomSelectorRow/RoomSelector";
-import AuraManagerButton from "./Gen/AuraManagerCard";
+import AuraManagerButton from "./AuraPreset/AuraManagerButton";
 import RoomCard from "./LightMenu/RoomCard";
 import LightArray from "./LightMenu/Lights/LightArray";
 import LightInfo from "./LightMenu/LightInfo";
+import AuraPresetManager from "./AuraPreset/AuraPresetManager";
 
 import type { Light, Room } from "./types";
 import { roomsData } from "./data";
@@ -41,36 +42,7 @@ export default function HomePage() {
           greeting="Good Morning, Jayden"
           subtext="How would you like to start your day?"
         />
-        <div className="flex overflow-x-auto py-6 space-x-4">
-          {/* Container for horizontal presets */}
-          <AuraPreset
-            auraName="Focus Time"
-            room="Office Space"
-            time="2"
-            hue="Cool"
-            power={true}
-            temperature="28"
-            backgroundImage="../../AuraImages/focustime.png"
-          />
-          <AuraPreset
-            auraName="Morning Wake"
-            room="Bedroom"
-            time="1"
-            hue="Warm"
-            power={false}
-            temperature="30"
-            backgroundImage="../../AuraImages/morningwake.png"
-          />
-          <AuraPreset
-            auraName="Cozy Evening"
-            room="Living Room"
-            time="3"
-            hue="Warm"
-            power={false}
-            temperature="33"
-            backgroundImage="../../AuraImages/cozyevening.png"
-          />
-        </div>
+        <AuraPresetManager />
         <div className="ribbon flex flex-wrap items-start space-x-4 mt-2">
           {/* Container for mini cards */}
           <MiniCardRow />
