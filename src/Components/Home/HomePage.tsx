@@ -10,6 +10,7 @@ import RoomSelector from "./RoomSelectorRow/RoomSelector";
 import AuraManagerButton from "./Gen/AuraManagerCard";
 import RoomCard from "./LightMenu/RoomCard";
 import LightArray from "./LightMenu/Lights/LightArray";
+import LightInfo from "./LightMenu/LightInfo";
 
 import type { Light, Room } from "./types";
 import { roomsData } from "./data";
@@ -17,6 +18,7 @@ import {
   handleRoomTemperatureChange,
   handleRoomSelection,
   handleLightSelection,
+  handleLightColourChange,
 } from "./handlers";
 
 export default function HomePage() {
@@ -29,13 +31,22 @@ export default function HomePage() {
     null,
     setRooms
   );
+
   const handleRoomSelectionBound = handleRoomSelection.bind(
     null,
     setSelectedRoom
   );
+
   const handleLightSelectionBound = handleLightSelection.bind(
     null,
     setSelectedLight
+  );
+
+  const handleLightColourChangeBound = handleLightColourChange.bind(
+    null,
+    setRooms,
+    selectedRoom?.name || "",
+    selectedLight?.name || ""
   );
 
   return (
@@ -114,8 +125,16 @@ export default function HomePage() {
                 onTemperatureChange={handleRoomTemperatureChangeBound}
               />
             )}
-            <div className="mt-4 bg-bblack room-settings-container">
-              {/* Additional div for future reference */}
+            <div className="mt-4">
+              {selectedLight && (
+                <div className="mt-6">
+                  <LightInfo
+                    selectedLight={selectedLight}
+                    selectedRoom={selectedRoom}
+                    onLightColorChange={handleLightColourChangeBound}
+                  />
+                </div>
+              )}
             </div>
           </div>
 
