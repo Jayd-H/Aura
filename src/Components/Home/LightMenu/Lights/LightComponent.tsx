@@ -8,6 +8,7 @@ import {
 } from "@mui/icons-material";
 
 import LightIcon from "./LightIcon";
+import LightButton from "./LightButton";
 
 interface LightProps {
   light: Light;
@@ -53,8 +54,10 @@ const LightComponent: React.FC<LightProps> = ({
 
   return (
     <div
-      className={`rounded-xl flex flex-col items-center justify-between p-4 font-montserrat relative overflow-hidden ${
-        isSelected ? "border-2 border-dashed border-bblack" : ""
+      className={`light-card rounded-xl flex flex-col items-center justify-between p-4 font-montserrat relative overflow-hidden hover:bg-white hover:shadow-2xl ${
+        isSelected
+          ? "border-2 selected-light-card border-bblack border-dashed"
+          : ""
       }`}
       style={lightStyle}
     >
@@ -67,7 +70,7 @@ const LightComponent: React.FC<LightProps> = ({
           />
         </button>
       </div>
-      <div className="-mt-12 -mb-12">
+      <div className="-mt-14 -mb-12">
         <LightIcon color={textColor} />
       </div>
       <div className="mt-16 mb-2">
@@ -81,12 +84,7 @@ const LightComponent: React.FC<LightProps> = ({
         <p className="font-comfortaa text-lg">{light.name}</p>
         <p className="font-semibold italic">{light.wattage}W</p>
       </div>
-      <button
-        className="mt-1 px-8 py-1 bg-bwhite text-bblack rounded-lg font-bold"
-        onClick={handleSelectLight}
-      >
-        Select
-      </button>
+      <LightButton onClick={handleSelectLight}>Select</LightButton>
     </div>
   );
 };

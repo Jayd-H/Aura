@@ -1,6 +1,8 @@
 import React from "react";
 import { LightbulbOutlined, FlashOnOutlined } from "@mui/icons-material";
 
+import LightButton from "./LightButton";
+
 const AddLight: React.FC = () => {
   const handleAddLight = () => {
     // TODO: Implement the logic to add a new light
@@ -15,7 +17,7 @@ const AddLight: React.FC = () => {
 
   return (
     <div
-      className={`rounded-xl flex flex-col items-center justify-between p-4 text-bblack font-montserrat relative overflow-hidden`}
+      className="light-card rounded-xl flex flex-col items-center justify-between p-4 font-montserrat relative overflow-hidden"
       style={lightStyle}
     >
       <div className="flex justify-between w-full">
@@ -30,12 +32,7 @@ const AddLight: React.FC = () => {
           No more lights to show, add another light in device manager
         </p>
       </div>
-      <button
-        className="mt-1 px-8 py-1 bg-bwhite text-bblack rounded-lg font-bold"
-        onClick={handleAddLight}
-      >
-        Add Light
-      </button>
+      <LightButton onClick={handleAddLight}>Add Light</LightButton>
     </div>
   );
 };
