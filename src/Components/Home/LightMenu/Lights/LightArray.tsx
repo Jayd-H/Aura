@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import type { Light, Room } from "../../types";
 import LightComponent from "./LightComponent";
-import useRoomLights from "./useRoomLights";
 import AddLight from "./AddLight";
+
+import { updateLightStatus } from "../../handlers";
 
 interface LightArrayProps {
   selectedRoom: Room;
+  rooms: Room[];
   setRooms: React.Dispatch<React.SetStateAction<Room[]>>;
   selectedLight: Light | null;
   setSelectedLight: React.Dispatch<React.SetStateAction<Light | null>>;
@@ -13,32 +15,45 @@ interface LightArrayProps {
 
 const LightArray: React.FC<LightArrayProps> = ({
   selectedRoom,
+  rooms,
   setRooms,
   selectedLight,
   setSelectedLight,
 }) => {
-  const [toggleLight] = useRoomLights(selectedRoom, setRooms);
+  const [lightsState, setLightsState] = useState(selectedRoom.lights);
 
-  const handleLightClick = (lightName: string, newStatus: boolean) => {
-    toggleLight(lightName, newStatus);
-    setSelectedLight(
-      selectedRoom.lights.find((light) => light.name === lightName) || null
+  useEffect(() => {
+    const updatedLights =
+      rooms.find((room) => room.name === selectedRoom.name)?.lights || [];
+    setLightsState(updatedLights);
+  }, [rooms, selectedRoom]);
+
+  const handleLightToggle = (lightName: string, newStatus: boolean) => {
+    const updatedRooms = updateLightStatus(
+      rooms,
+      selectedRoom.name,
+      lightName,
+      newStatus
     );
+    setRooms(updatedRooms);
+  };
+
+  const handleLightSelect = (light: Light) => {
+    setSelectedLight(light);
   };
 
   const renderLights = () => {
-    const lightComponents = selectedRoom.lights.map((light, index) => (
+    const lightComponents = lightsState.map((light, index) => (
       <LightComponent
         key={light.name}
         light={light}
-        onLightClick={handleLightClick}
-        selectedRoom={selectedRoom}
+        onLightToggle={handleLightToggle}
+        onLightSelect={handleLightSelect}
         isSelected={selectedLight?.name === light.name}
-        onSelectLight={setSelectedLight}
       />
     ));
 
-    const remainingSlots = 8 - selectedRoom.lights.length;
+    const remainingSlots = 8 - lightsState.length;
     const addLightComponents = Array.from({ length: remainingSlots }).map(
       (_, index) => <AddLight key={`add-light-${index}`} />
     );

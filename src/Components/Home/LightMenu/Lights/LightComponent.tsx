@@ -11,18 +11,16 @@ import LightButton from "./LightButton";
 
 interface LightProps {
   light: Light;
-  selectedRoom: Room;
-  onLightClick: (lightName: string, newStatus: boolean) => void;
+  onLightToggle: (lightName: string, newStatus: boolean) => void;
+  onLightSelect: (light: Light) => void;
   isSelected: boolean;
-  onSelectLight: (light: Light) => void;
 }
 
 const LightComponent: React.FC<LightProps> = ({
   light,
-  selectedRoom,
-  onLightClick,
+  onLightToggle,
+  onLightSelect,
   isSelected,
-  onSelectLight,
 }) => {
   const [lightColor, setLightColor] = useState(
     light.isOn ? light.color : "#D3D3D3"
@@ -41,11 +39,11 @@ const LightComponent: React.FC<LightProps> = ({
   };
 
   const handleToggle = () => {
-    onLightClick(light.name, !light.isOn);
+    onLightToggle(light.name, !light.isOn);
   };
 
   const handleSelectLight = () => {
-    onSelectLight(light);
+    onLightSelect(light);
   };
 
   function isColorDark(color: string): boolean {
