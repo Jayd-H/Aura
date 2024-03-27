@@ -1,19 +1,20 @@
 import React from "react";
-import { useState } from "react";
 import RoomSelectButton from "./RoomSelectButton";
 import { AddOutlined } from "@mui/icons-material";
-import type { Room } from "../HomePage";
+import type { Room } from "../types";
 
 interface RoomSelectorProps {
   rooms: Room[];
   onRoomSelect: (room: Room) => void;
+  selectedRoom: Room | null;
 }
 
-const RoomSelector: React.FC<RoomSelectorProps> = ({ rooms, onRoomSelect }) => {
-  const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
-
+const RoomSelector: React.FC<RoomSelectorProps> = ({
+  rooms,
+  onRoomSelect,
+  selectedRoom,
+}) => {
   const handleRoomSelection = (room: Room) => {
-    setSelectedRoom(room);
     onRoomSelect(room);
   };
 
