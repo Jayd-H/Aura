@@ -104,10 +104,10 @@
         height: 300px;
     }
 
-        .light-card {
-            padding: 4rem;
-            overflow: visible;
-        }
+    .light-card {
+        padding: 4rem;
+        overflow: visible;
+    }
 
     .selected-light-card {
         z-index: 2;
