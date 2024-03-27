@@ -9,7 +9,7 @@ const AuraManagerButton: React.FC = () => {
   return (
     <div>
       <button
-        className="ml-16 bg-tb-gradient rounded-lg aura-manager-card font-montserrat font-bold text-lg text-bwhite"
+        className="ml-16 bg-tb-gradient rounded-lg aura-manager-card font-montserrat font-bold text-lg text-bwhite hover:bg-lr-gradient-blue hover:shadow-2xl"
         onClick={handleButtonClick}
       >
         <p className="text-sm font-comfortaa mr-6 -mb-1">Add & Delete Auras</p>
