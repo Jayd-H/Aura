@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import type { Light, Room } from "../../types";
 import LightComponent from "./LightComponent";
 import useRoomLights from "./useRoomLights";
@@ -17,17 +17,19 @@ const LightArray: React.FC<LightArrayProps> = ({
   selectedLight,
   setSelectedLight,
 }) => {
-  const [lights, toggleLight] = useRoomLights(selectedRoom, setRooms);
+  const [toggleLight] = useRoomLights(selectedRoom, setRooms);
 
   const handleLightClick = (lightName: string, newStatus: boolean) => {
     toggleLight(lightName, newStatus);
-    setSelectedLight(lights.find((light) => light.name === lightName) || null);
+    setSelectedLight(
+      selectedRoom.lights.find((light) => light.name === lightName) || null
+    );
   };
 
   const renderLights = () => {
-    const lightComponents = lights.map((light, index) => (
+    const lightComponents = selectedRoom.lights.map((light, index) => (
       <LightComponent
-        key={index}
+        key={light.name}
         light={light}
         onLightClick={handleLightClick}
         selectedRoom={selectedRoom}
@@ -36,7 +38,7 @@ const LightArray: React.FC<LightArrayProps> = ({
       />
     ));
 
-    const remainingSlots = 8 - lights.length;
+    const remainingSlots = 8 - selectedRoom.lights.length;
     const addLightComponents = Array.from({ length: remainingSlots }).map(
       (_, index) => <AddLight key={`add-light-${index}`} />
     );
