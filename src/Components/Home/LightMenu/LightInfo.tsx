@@ -19,7 +19,6 @@ const LightInfo: React.FC<LightInfoProps> = ({
   const [color, setColor] = useState(selectedLight?.color || "#ffffff");
 
   useEffect(() => {
-    // Add useEffect here
     setColor(selectedLight?.color || "#ffffff");
   }, [selectedLight]);
 
