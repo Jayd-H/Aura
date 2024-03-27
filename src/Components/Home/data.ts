@@ -3,66 +3,76 @@ export const roomsData = [
         name: "Living Room",
         temperature: 22,
         lights: [
-            { id: "1", name: "Main Light", wattage: 60, isOn: true, color: "#ffffff" },
-            { id: "2", name: "Lamp", wattage: 40, isOn: true, color: "#ffff00" },
-            { id: "3", name: "Desk Light", wattage: 30, isOn: false, color: "#0000ff" },
-            { id: "4", name: "Main Light 2", wattage: 60, isOn: true, color: "#ffffff" },
-            { id: "5", name: "Lamp 2", wattage: 40, isOn: true, color: "#ffff00" },
-            { id: "6", name: "Desk Light 2", wattage: 30, isOn: false, color: "#0000ff" },
-            { id: "7", name: "Lamp 3", wattage: 40, isOn: true, color: "#ffff00" },
-            { id: "8", name: "Desk Light 3", wattage: 30, isOn: false, color: "#0000ff" },
-        ],
+            { name: "Main Light", wattage: 60, isOn: true, color: "#E24692" },
+            { name: "Lamp", wattage: 40, isOn: true, color: "#23DA7F" },  
+            { name: "Desk Light", wattage: 30, isOn: false, color: "#FF9D2E" }, 
+            { name: "Main Light 2", wattage: 60, isOn: true, color: "#7150C2" }, 
+            { name: "Lamp 2", wattage: 40, isOn: true, color: "#01C0E8" }, 
+            { name: "Desk Light 2", wattage: 30, isOn: false, color: "#D726B6" },
+            { name: "Accent Light", wattage: 25, isOn: true, color: "#3EC96A" }, 
+            { name: "Floor Lamp", wattage: 45, isOn: false, color: "#DF8F2A" }, 
+        ]
     },
-    { 
-        name: "Dining Room", 
-        temperature: 21, 
+    {
+        name: "Dining Room",
+        temperature: 21,
         lights: [
-            { id: "9", name: "Main Light", wattage: 60, isOn: true, color: "#ffffff" },
-        ] 
+            { name: "Main Light", wattage: 60, isOn: true, color: "#FFD042" },
+            { name: "Chandelier", wattage: 75, isOn: false, color: "#DF2F82" }, 
+        ]
     },
-    { 
-        name: "Master Bedroom", 
-        temperature: 20, 
+    {
+        name: "Master Bedroom",
+        temperature: 20,
         lights: [
-            { id: "10", name: "Main Light", wattage: 60, isOn: true, color: "#ffffff" },
-            { id: "11", name: "Desk Light", wattage: 30, isOn: false, color: "#0000ff" },
-        ] 
+            { name: "Main Light", wattage: 60, isOn: true, color: "#9DE4DA" },
+            { name: "Desk Light", wattage: 30, isOn: false, color: "#904EC7" },
+            { name: "Bedside Lamp", wattage: 20, isOn: true, color: "#E2864A" }, 
+            { name: "Reading Light", wattage: 35, isOn: true, color: "#45D0AA" }, 
+        ]
     },
-    { 
-        name: "Guest Bedroom", 
-        temperature: 21, 
+    {
+        name: "Guest Bedroom",
+        temperature: 21,
         lights: [
-            { id: "12", name: "Main Light", wattage: 60, isOn: true, color: "#ffffff" },
-        ] 
+            { name: "Main Light", wattage: 60, isOn: true, color: "#73C5E9" },
+            { name: "Bedside Lamp", wattage: 20, isOn: true, color: "#E989BE" }, 
+            { name: "Ambient Light", wattage: 15, isOn: false, color: "#8E58EE" }, 
+        ]
     },
-    { 
-        name: "Kitchen", 
-        temperature: 23, 
+    {
+        name: "Kitchen",
+        temperature: 23,
         lights: [
-            { id: "13", name: "Main Light", wattage: 60, isOn: true, color: "#ffffff" },
-            { id: "14", name: "Desk Light", wattage: 30, isOn: false, color: "#0000ff" },
-        ] 
+            { name: "Main Light", wattage: 60, isOn: true, color: "#89DA45" },
+            { name: "Desk Light", wattage: 30, isOn: false, color: "#CA6738" },
+            { name: "Under Cabinet Light", wattage: 20, isOn: true, color: "#31A2BE" }, 
+        ]
     },
-    { 
-        name: "Office Space", 
-        temperature: 24, 
+    {
+        name: "Office Space",
+        temperature: 24,
         lights: [
-            { id: "15", name: "Main Light", wattage: 60, isOn: true, color: "#ffffff" },
-            { id: "16", name: "Desk Light", wattage: 30, isOn: false, color: "#0000ff" },
-        ] 
+            { name: "Main Light", wattage: 60, isOn: true, color: "#4988B1" },
+            { name: "Desk Light", wattage: 30, isOn: false, color: "#EC4E47" },
+            { name: "Reading Lamp", wattage: 40, isOn: true, color: "#E89A28" }, 
+        ]
     },
-    { 
-        name: "Bathroom", 
-        temperature: 19, 
+    {
+        name: "Bathroom",
+        temperature: 19,
         lights: [
-            { id: "17", name: "Main Light", wattage: 60, isOn: true, color: "#ffffff" },
-        ] 
+            { name: "Main Light", wattage: 60, isOn: true, color: "#3AB7E8" },
+            { name: "Vanity Light", wattage: 45, isOn: false, color: "#FAAF40" }, 
+        ]
     },
-    { 
-        name: "Balcony", 
-        temperature: 18, 
+    {
+        name: "Balcony",
+        temperature: 18,
         lights: [
-            { id: "18", name: "Main Light", wattage: 60, isOn: true, color: "#ffffff" },
-        ] 
+            { name: "Main Light", wattage: 60, isOn: true, color: "#E94368" },
+            { name: "Lantern", wattage: 25, isOn: true, color: "#9B59B6" }, 
+
+        ]
     },
 ];
