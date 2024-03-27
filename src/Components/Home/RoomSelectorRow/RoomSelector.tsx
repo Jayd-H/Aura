@@ -41,7 +41,7 @@ const RoomSelector: React.FC<RoomSelectorProps> = ({
           right: -45,
           top: 25,
         }}
-        className="border-full bg-lr-gradient items-center justify-center flex text-bwhite rounded-full"
+        className="border-full bg-lr-gradient items-center justify-center flex text-bwhite rounded-full hover:bg-lr-gradient-blue hover:shadow-2xl"
         onClick={handleButtonClick}
         title="Add Room"
       >
