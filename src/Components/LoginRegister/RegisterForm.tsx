@@ -29,23 +29,8 @@ export const RegisterForm: React.FC = () => {
     const strength = calculateStrength(password);
 
     setPasswordError(isMatch ? "" : "Passwords do not match!");
-    setIsButtonDisabled(!(isMatch && isValidLength && strength >= 50));
+    setIsButtonDisabled(!(isMatch && isValidLength && strength >= 20));
   }, [email, password, confirmPassword]);
-
-  const isFormValid = () => {
-    const strength = calculateStrength(password);
-    return (
-      console.log("Email: ", email),
-      console.log("Password: ", password),
-      console.log("Confirm Password: ", confirmPassword),
-      console.log("Strength: ", strength),
-      email.length > 0 &&
-        password.length > 0 &&
-        confirmPassword.length > 0 &&
-        password === confirmPassword &&
-        strength >= 50
-    );
-  };
 
   const checkPasswordMatch = () => {
     if (password !== confirmPassword) {
