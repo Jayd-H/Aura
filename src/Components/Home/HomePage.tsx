@@ -14,15 +14,10 @@ import LightInfo from "./LightMenu/LightInfo";
 
 import type { Light, Room } from "./types";
 import { roomsData } from "./data";
-import {
-  handleRoomTemperatureChange,
-  handleRoomSelection,
-  handleLightSelection,
-  handleLightColourChange,
-} from "./handlers";
+import { handleRoomTemperatureChange, handleRoomSelection } from "./handlers";
 
 export default function HomePage() {
-  const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
+  const [selectedRoom, setSelectedRoom] = useState<Room | null>(roomsData[0]);
   const [selectedLight, setSelectedLight] = useState<Light | null>(null);
 
   const [rooms, setRooms] = useState<Room[]>([...roomsData]);
@@ -35,19 +30,6 @@ export default function HomePage() {
   const handleRoomSelectionBound = handleRoomSelection.bind(
     null,
     setSelectedRoom
-  );
-
-  const handleLightSelectionBound = handleLightSelection.bind(
-    null,
-    setSelectedLight
-  );
-
-  const handleLightColourChangeBound = handleLightColourChange.bind(
-    null,
-    setRooms,
-    setSelectedRoom,
-    selectedRoom,
-    selectedLight
   );
 
   return (
@@ -127,23 +109,23 @@ export default function HomePage() {
               />
             )}
             <div className="mt-4">
-              {selectedLight && (
+              {selectedLight && selectedRoom && (
                 <div className="mt-6">
                   <LightInfo
                     selectedLight={selectedLight}
                     selectedRoom={selectedRoom}
-                    onLightColorChange={handleLightColourChangeBound}
+                    rooms={rooms}
+                    setRooms={setRooms}
                   />
                 </div>
               )}
             </div>
           </div>
-
-          {/* LightArray */}
           {selectedRoom && (
             <div className="flex-2 mb-40">
               <LightArray
                 selectedRoom={selectedRoom}
+                rooms={rooms}
                 setRooms={setRooms}
                 selectedLight={selectedLight}
                 setSelectedLight={setSelectedLight}
