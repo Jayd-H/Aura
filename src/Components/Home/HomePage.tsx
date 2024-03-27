@@ -8,45 +8,35 @@ import PowerConsumptionChart from "./Savings/PowerConsumptionChart";
 import SavingsCard from "./Savings/SavingsCard";
 import RoomSelector from "./RoomSelectorRow/RoomSelector";
 import AuraManagerButton from "./Gen/AuraManagerCard";
-import RoomCard from "./RoomProperties/RoomCard";
+import RoomCard from "./LightMenu/RoomCard";
+import LightArray from "./LightMenu/Lights/LightArray";
 
-export interface Room {
-  name: string;
-  temperature: number;
-  lights: Light[];
-}
-
-export interface Light {
-  name: string;
-  wattage: number;
-  isOn: boolean;
-  color: string;
-}
+import type { Light, Room } from "./types";
+import { roomsData } from "./data";
+import {
+  handleRoomTemperatureChange,
+  handleRoomSelection,
+  handleLightSelection,
+} from "./handlers";
 
 export default function HomePage() {
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
-  const [rooms, setRooms] = useState<Room[]>([
-    { name: "Living Room", temperature: 22, lights: [] },
-    { name: "Master Bedroom", temperature: 20, lights: [] },
-    { name: "Guest Bedroom", temperature: 21, lights: [] },
-    { name: "Kitchen", temperature: 23, lights: [] },
-    { name: "Office Space", temperature: 24, lights: [] },
-    { name: "Bathroom", temperature: 19, lights: [] },
-    { name: "Balcony", temperature: 18, lights: [] },
-    { name: "Outdoor Shed", temperature: 18, lights: [] },
-  ]);
+  const [selectedLight, setSelectedLight] = useState<Light | null>(null);
 
-  const handleRoomTemperatureChange = (roomName: string, newTemp: number) => {
-    setRooms((prevRooms) =>
-      prevRooms.map((room) =>
-        room.name === roomName ? { ...room, temperature: newTemp } : room
-      )
-    );
-  };
+  const [rooms, setRooms] = useState<Room[]>([...roomsData]);
 
-  const handleRoomSelection = (room: Room) => {
-    setSelectedRoom(room);
-  };
+  const handleRoomTemperatureChangeBound = handleRoomTemperatureChange.bind(
+    null,
+    setRooms
+  );
+  const handleRoomSelectionBound = handleRoomSelection.bind(
+    null,
+    setSelectedRoom
+  );
+  const handleLightSelectionBound = handleLightSelection.bind(
+    null,
+    setSelectedLight
+  );
 
   return (
     <div className="flex flex-col">
@@ -107,16 +97,38 @@ export default function HomePage() {
         </div>
         <div className="flex mt-6">
           <div className="room-selector-wrapper">
-            <RoomSelector onRoomSelect={handleRoomSelection} rooms={rooms} />
+            <RoomSelector
+              onRoomSelect={handleRoomSelectionBound}
+              rooms={rooms}
+              selectedRoom={selectedRoom}
+            />
           </div>
           <AuraManagerButton />
         </div>
-        <div className="mt-6">
+        <div className="flex mt-6">
+          <div className="flex-1">
+            {/* RoomCard */}
+            {selectedRoom && (
+              <RoomCard
+                room={selectedRoom}
+                onTemperatureChange={handleRoomTemperatureChangeBound}
+              />
+            )}
+            <div className="mt-4 bg-bblack room-settings-container">
+              {/* Additional div for future reference */}
+            </div>
+          </div>
+
+          {/* LightArray */}
           {selectedRoom && (
-            <RoomCard
-              room={selectedRoom}
-              onTemperatureChange={handleRoomTemperatureChange}
-            />
+            <div className="flex-2 mb-40">
+              <LightArray
+                selectedRoom={selectedRoom}
+                setRooms={setRooms}
+                selectedLight={selectedLight}
+                setSelectedLight={setSelectedLight}
+              />
+            </div>
           )}
         </div>
       </div>
