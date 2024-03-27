@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import type { Room } from "../HomePage";
+import type { Room } from "../types";
 import { VisibilityOutlined, FlareOutlined } from "@mui/icons-material";
 
 interface RoomCardProps {
