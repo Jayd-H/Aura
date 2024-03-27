@@ -76,13 +76,15 @@ const LightComponent: React.FC<LightProps> = ({
       <div className="-mt-14 -mb-12">
         <LightIcon color={textColor} />
       </div>
-      <div className="mt-16 mb-2">
-        {light.isOn ? (
-          <FlashOnOutlined className="h-7 w-7" />
-        ) : (
-          <FlashOffOutlined className="h-7 w-7" />
-        )}
-      </div>
+      <button onClick={handleToggle} className="border-none cursor-pointer">
+        <div className="mt-16 mb-2">
+          {light.isOn ? (
+            <FlashOnOutlined className="h-7 w-7" />
+          ) : (
+            <FlashOffOutlined className="h-7 w-7" />
+          )}
+        </div>
+      </button>
       <div className="text-center">
         <p className="font-comfortaa text-lg">{light.name}</p>
         <p className="font-semibold italic">{light.wattage}W</p>
