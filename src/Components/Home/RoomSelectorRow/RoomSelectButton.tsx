@@ -1,5 +1,5 @@
 import React from "react";
-import type { Room } from "../HomePage";
+import type { Room } from "../types";
 
 interface RoomSelectButtonProps {
   room: Room;
