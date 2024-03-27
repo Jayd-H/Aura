@@ -98,9 +98,18 @@
     .flex-2 {
         flex: 2;
     }
-    
-    .light-image{
-        z-index: -1;
+
+    .light-grid>div {
+        width: 160px;
+        height: 300px;
     }
 
+        .light-card {
+            padding: 4rem;
+            overflow: visible;
+        }
+
+    .selected-light-card {
+        z-index: 2;
+    }
 }
