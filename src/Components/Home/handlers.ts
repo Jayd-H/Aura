@@ -39,3 +39,23 @@ export const updateLightStatus = (
         )
     );
 };
+
+export const handleLightColourChange = (
+  setRooms: React.Dispatch<React.SetStateAction<Room[]>>,
+  roomName: string,
+  lightName: string,
+  newColour: string
+): void => {
+  setRooms((prevRooms) =>
+    prevRooms.map((room) =>
+      room.name === roomName
+        ? {
+            ...room,
+            lights: room.lights.map((light) =>
+              light.name === lightName ? { ...light, color: newColour } : light
+            ),
+          }
+        : room
+    )
+  );
+};
