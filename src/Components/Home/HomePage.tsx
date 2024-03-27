@@ -45,8 +45,9 @@ export default function HomePage() {
   const handleLightColourChangeBound = handleLightColourChange.bind(
     null,
     setRooms,
-    selectedRoom?.name || "",
-    selectedLight?.name || ""
+    setSelectedRoom,
+    selectedRoom,
+    selectedLight
   );
 
   return (
