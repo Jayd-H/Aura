@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import type { Light, Room } from "../../types";
 import LightComponent from "./LightComponent";
 import AddLight from "./AddLight";
-
 import { updateLightStatus } from "../../handlers";
 
 interface LightArrayProps {
@@ -43,7 +42,7 @@ const LightArray: React.FC<LightArrayProps> = ({
   };
 
   const renderLights = () => {
-    const lightComponents = lightsState.map((light, index) => (
+    const lightComponents = lightsState.map((light) => (
       <LightComponent
         key={light.name}
         light={light}
@@ -62,8 +61,8 @@ const LightArray: React.FC<LightArrayProps> = ({
   };
 
   return (
-    <div className="light-array-container">
-      <div className="light-grid">{renderLights()}</div>
+    <div className="grid lg:grid-cols-4 grid-cols-2 gap-4">
+      {renderLights()}
     </div>
   );
 };

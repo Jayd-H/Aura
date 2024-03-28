@@ -12,51 +12,6 @@
 }
 
 @layer components {
-    .mini-card {
-        width: 150px;
-        height: 100px;
-    }
-
-    .savings-card {
-        width: 194px;
-        height: 215px;
-    }
-
-    .room-selector-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 5px;
-        max-height: 80px;
-        overflow-y: auto;
-        scroll-snap-align: start;
-
-        margin-right: -20px;
-
-    }
-
-    .room-select-button {
-        width: 100%;
-        height: 35px;
-    }
-
-    .room-selector-wrapper {
-        flex: 1;
-    }
-    
-    .aura-manager-card{
-        height: 74px;
-        width: 220px;
-    }
-
-    .flex > .room-card{
-        flex: 0 0 30%;
-    }
-    
-    .room-card {
-        width: 100%;
-        max-width: 300px;
-    }
 
     .ribbon {
         position: relative;;
@@ -72,44 +27,5 @@
         background-color: #DDDCEE;
         transform: translateX(-50%);
         z-index: -1;
-    }
-    
-    .light-array-container {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-    }
-    
-    .light-grid {
-        display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, auto);
-            gap: 10px;
-            overflow-y: auto;
-            
-    }
-
-    .room-settings-container {
-        width: 100%;
-        max-width: 300px;
-        flex-grow: 1;
-    }
-    
-    .flex-2 {
-        flex: 2;
-    }
-
-    .light-grid>div {
-        width: 160px;
-        height: 300px;
-    }
-
-    .light-card {
-        padding: 4rem;
-        overflow: visible;
-    }
-
-    .selected-light-card {
-        z-index: 2;
     }
 }

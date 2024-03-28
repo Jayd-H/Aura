@@ -7,6 +7,7 @@ import MiniCardRow from "./MiniCards/MiniCardRow";
 import PowerConsumptionChart from "./Savings/PowerConsumptionChart";
 import SavingsCard from "./Savings/SavingsCard";
 import RoomSelector from "./RoomSelectorRow/RoomSelector";
+import RoomSelectorPlus from "./RoomSelectorRow/RoomSelectorPlus";
 import AuraManagerButton from "./AuraPreset/AuraManagerButton";
 import RoomCard from "./LightMenu/RoomCard";
 import LightArray from "./LightMenu/Lights/LightArray";
@@ -18,7 +19,7 @@ import type { Light, Room } from "./types";
 import { roomsData } from "./data";
 import { handleRoomTemperatureChange, handleRoomSelection } from "./handlers";
 
-export default function HomePage() {
+export default function HomePage2() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(roomsData[0]);
   const [selectedLight, setSelectedLight] = useState<Light | null>(null);
@@ -76,56 +77,70 @@ export default function HomePage() {
           animate="visible"
           variants={containerVariants}
         >
-          <div className="flex flex-col">
-            <motion.div variants={childVariants}>
-              <NavBar currentTime="09:41 AM" />
+          <NavBar currentTime="09:41 AM" />
+          <div className="container mx-auto py-2 2xl:px-72 lg:px-10 md:px-32 px-2">
+            <motion.div variants={childVariants} className="mb-4">
+              {/* Greeting*/}
+              <GreetingCard
+                greeting="Good Morning Jayden"
+                subtext="How would you like to start your day?"
+              />
             </motion.div>
-            <div className="max-w-6xl mx-auto">
-              <motion.div variants={childVariants}>
-                <GreetingCard
-                  greeting="Good Morning, Jayden"
-                  subtext="How would you like to start your day?"
-                />
-              </motion.div>
-              <motion.div variants={childVariants}>
-                <AuraPresetManager />
-              </motion.div>
-              <motion.div
-                variants={childVariants}
-                className="ribbon flex flex-wrap items-start space-x-4 mt-2"
-              >
-                <MiniCardRow />
-                <div className="mt-4 flex-shrink-0">
-                  <PowerConsumptionChart week="Sat 9th - Fri 15th March" />
+            <motion.div variants={childVariants}>
+              {/* Aura Presets*/}
+              <AuraPresetManager />
+            </motion.div>
+            <motion.div variants={childVariants} className="ribbon">
+              <div className="container mt-6">
+                <div className="grid grid-cols-1 lg:grid-cols-6 gap-4">
+                  {/* Mini Card Row */}
+                  <div className="grid col-span-2 -mt-4 lg:-mt-0">
+                    <MiniCardRow />
+                  </div>
+                  {/* Power Consumption Chart */}
+                  <div className="grid lg:col-span-3 col-span-2">
+                    <PowerConsumptionChart week="Sat 9th - Fri 15th March" />
+                  </div>
+                  {/* Savings Card */}
+                  <div className="grid lg:col-span-1 col-span-2">
+                    <SavingsCard value={2332} unit="kWj" money={220} />
+                  </div>
                 </div>
-                <div className="flex-shrink-0">
-                  <SavingsCard
-                    title="Saved so far"
-                    value={2332}
-                    unit="kWj"
-                    money={220}
-                  />
-                </div>
-              </motion.div>
-              <motion.div variants={childVariants} className="flex mt-6">
-                <div className="room-selector-wrapper">
+              </div>
+            </motion.div>
+            <motion.div variants={childVariants} className="container mt-6">
+              <div className="grid lg:grid-cols-12 grid-cols-1">
+                {/* Room Selector*/}
+                <div className="grid lg:col-span-8 lg:-mr-6">
                   <RoomSelector
-                    onRoomSelect={handleRoomSelectionBound}
                     rooms={rooms}
                     selectedRoom={selectedRoom}
+                    onRoomSelect={handleRoomSelectionBound}
                   />
                 </div>
-                <AuraManagerButton />
-              </motion.div>
-              <motion.div variants={childVariants} className="flex mt-6">
-                <div className="flex-1">
-                  {selectedRoom && (
-                    <RoomCard
-                      room={selectedRoom}
-                      onTemperatureChange={handleRoomTemperatureChangeBound}
-                    />
-                  )}
-                  <div className="mt-4">
+                {/* Add Room Button */}
+                <div className="grid lg:col-span-1 justify-center items-center lg:mt-0 mt-1 lg:mb-0 mb-4">
+                  <RoomSelectorPlus />
+                </div>
+                {/* Aura Manager Button */}
+                <div className="grid lg:col-span-3 lg:-ml-2">
+                  <AuraManagerButton />
+                </div>
+              </div>
+            </motion.div>
+            <motion.div variants={childVariants} className="container mt-8">
+              <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
+                {/* Room Card and Light Info */}
+                <div className="grid lg:col-span-1">
+                  {/* Room Card */}
+                  <div className="grid lg:auto-rows-max">
+                    {selectedRoom && (
+                      <RoomCard
+                        room={selectedRoom}
+                        onTemperatureChange={handleRoomTemperatureChangeBound}
+                      />
+                    )}
+                    {/* Light Info */}
                     {selectedRoom && (
                       <div className="mt-6">
                         <LightInfo
@@ -138,19 +153,22 @@ export default function HomePage() {
                     )}
                   </div>
                 </div>
-                {selectedRoom && (
-                  <div className="flex-2 mb-40">
-                    <LightArray
-                      selectedRoom={selectedRoom}
-                      rooms={rooms}
-                      setRooms={setRooms}
-                      selectedLight={selectedLight}
-                      setSelectedLight={setSelectedLight}
-                    />
-                  </div>
-                )}
-              </motion.div>
-            </div>
+                {/* Light Array */}
+                <div className="grid lg:col-span-2">
+                  {selectedRoom && (
+                    <div className="flex-2 mb-40">
+                      <LightArray
+                        selectedRoom={selectedRoom}
+                        rooms={rooms}
+                        setRooms={setRooms}
+                        selectedLight={selectedLight}
+                        setSelectedLight={setSelectedLight}
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       )}

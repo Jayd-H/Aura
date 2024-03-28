@@ -39,52 +39,54 @@ const PowerConsumptionChart: React.FC<PowerConsumptionChartProps> = ({
   );
 
   return (
-    <motion.div drag>
-      <div className="flex flex-col -mt-4 font-montserrat -ml-5 text-bblack">
+    <motion.div drag className="mt-4 lg:mt-0 lg:mr-1">
+      <div className="flex flex-col font-montserrat -ml-5 text-bblack">
         <div className="flex items-center ml-9">
-          <BoltOutlined className="text-2xl mr-3 -mb-2" />{" "}
+          <BoltOutlined className="text-2xl mr-3 -mb-2" />
           <h1 className="text-lg font-semibold font-comfortaa  ">
             Power Consumption <span className="text-md">(kWjh)</span>
           </h1>
         </div>
         <p className="text-sm italic font-semibold ml-20 -mt-1 -mb-5">{week}</p>
-        <ResponsiveContainer width={470} height={200}>
-          <BarChart
-            data={data}
-            margin={{
-              top: 0,
-              right: 5,
-              left: -2,
-              bottom: 0,
-            }}
-            barCategoryGap="30%"
-          >
-            <XAxis
-              dataKey="name"
-              axisLine={false}
-              tickLine={false}
-              tickMargin={10}
-              tick={<CustomTick />}
-            />
-            <YAxis
-              domain={[0, "dataMax + 50"]}
-              allowDataOverflow
-              axisLine={false}
-              tickLine={false}
-              ticks={yTicks}
-              tick={<CustomTick />}
-            />
-            <Tooltip cursor={{ fill: "transparent" }} />
-            <Bar dataKey="value" shape={renderCustomBarShape} barSize={12}>
-              {data.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={entry.current ? "#CA6EEB" : "#555263"}
-                />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
+        <div style={{ width: "100%", height: 210 }}>
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              data={data}
+              margin={{
+                top: 0,
+                right: 5,
+                left: -2,
+                bottom: 0,
+              }}
+              barCategoryGap="30%"
+            >
+              <XAxis
+                dataKey="name"
+                axisLine={false}
+                tickLine={false}
+                tickMargin={10}
+                tick={<CustomTick />}
+              />
+              <YAxis
+                domain={[0, "dataMax + 50"]}
+                allowDataOverflow
+                axisLine={false}
+                tickLine={false}
+                ticks={yTicks}
+                tick={<CustomTick />}
+              />
+              <Tooltip cursor={{ fill: "transparent" }} />
+              <Bar dataKey="value" shape={renderCustomBarShape} barSize={12}>
+                {data.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={entry.current ? "#CA6EEB" : "#555263"}
+                  />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       </div>
     </motion.div>
   );

@@ -42,15 +42,15 @@ const RoomCard: React.FC<RoomCardProps> = ({ room, onTemperatureChange }) => {
   };
 
   return (
-    <div className="room-card bg-bwhite px-4 py-3 flex flex-col items-center font-montserrat text-bblack border-dashed border-2 border-bblack rounded-2xl">
+    <div className="room-card bg-bwhite px-4 pt-3 flex flex-col items-center font-montserrat text-bblack border-dashed border-2 border-bblack rounded-2xl">
       <div className="flex justify-between w-full">
         <VisibilityOutlined />
         <FlareOutlined />
       </div>
-      <h2 className=" -mt-6 mb-2 text-lg italic flex items-center justify-center">
+      <h2 className=" -mt-12 mb-1 text-md italic flex items-center justify-center bg-bwhite">
         Selected Room
       </h2>
-      <h2 className="font-semibold font-comfortaa text-xl mb-1 flex items-center justify-center">
+      <h2 className="font-semibold font-comfortaa text-xl mb-1 flex items-center -mt-2 justify-center">
         {room.name}
       </h2>
       <div
@@ -68,7 +68,7 @@ const RoomCard: React.FC<RoomCardProps> = ({ room, onTemperatureChange }) => {
           <p className="text-xl font-bold select-none">{temperature}°C</p>
         </div>
       </div>
-      <h2 className="text-center text-sm px-3 mt-2 mb-2 items-center">
+      <h2 className="text-center text-sm px-3 mt-1 mb-2 items-center">
         Change temperature of the room by using the slider
       </h2>
     </div>
