@@ -56,9 +56,9 @@ const LightComponent: React.FC<LightProps> = ({
 
   return (
     <div
-      className={`light-card rounded-xl flex flex-col items-center justify-between p-4 font-montserrat relative overflow-hidden hover:bg-white hover:shadow-2xl ${
+      className={`light-card rounded-xl flex flex-col lg:h-64 items-center justify-between p-4 font-montserrat relative overflow-hidden hover:bg-white hover:shadow-2xl ${
         isSelected
-          ? "border-2 selected-light-card border-bblack border-dashed"
+          ? "outline-2 selected-light-card outline-bblack outline-dashed"
           : ""
       }`}
       style={lightStyle}
@@ -109,7 +109,13 @@ const LightComponent: React.FC<LightProps> = ({
         </div>
       </button>
       <div className="text-center">
-        <p className="font-comfortaa text-lg">{light.name}</p>
+        <p
+          className={`font-comfortaa text-lg ${
+            light.name.length > 10 ? "text-tiny mb-2" : ""
+          }`}
+        >
+          {light.name}
+        </p>
         <p className="font-semibold italic">{light.wattage}W</p>
       </div>
       <LightButton onClick={handleSelectLight}>Select</LightButton>
