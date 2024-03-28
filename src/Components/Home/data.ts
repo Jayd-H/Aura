@@ -6,9 +6,8 @@ export const roomsData = [
             { name: "Main Light", wattage: 60, isOn: true, color: "#E24692" },
             { name: "Lamp", wattage: 40, isOn: true, color: "#23DA7F" },  
             { name: "Desk Light", wattage: 30, isOn: false, color: "#FF9D2E" }, 
-            { name: "Main Light 2", wattage: 60, isOn: true, color: "#7150C2" }, 
+            { name: "Big Light", wattage: 60, isOn: true, color: "#7150C2" }, 
             { name: "Lamp 2", wattage: 40, isOn: true, color: "#01C0E8" }, 
-            { name: "Desk Light 2", wattage: 30, isOn: false, color: "#D726B6" },
             { name: "Accent Light", wattage: 25, isOn: true, color: "#3EC96A" }, 
             { name: "Floor Lamp", wattage: 45, isOn: false, color: "#DF8F2A" }, 
         ]
@@ -46,7 +45,7 @@ export const roomsData = [
         lights: [
             { name: "Main Light", wattage: 60, isOn: true, color: "#89DA45" },
             { name: "Desk Light", wattage: 30, isOn: false, color: "#CA6738" },
-            { name: "Under Cabinet Light", wattage: 20, isOn: true, color: "#31A2BE" }, 
+            { name: "Cabinet Light", wattage: 20, isOn: true, color: "#31A2BE" }, 
         ]
     },
     {
