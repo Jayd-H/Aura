@@ -9,7 +9,7 @@ export const roomsData = [
             { name: "Big Light", wattage: 60, isOn: false, color: "#7150C2" }, 
             { name: "Lamp 2", wattage: 40, isOn: false, color: "#01C0E8" }, 
             { name: "Accent Light", wattage: 25, isOn: false, color: "#3EC96A" }, 
-            { name: "Floor Lamp", wattage: 45, isOn: false, color: "#DF8F2A" }, 
+            { name: "Lamp 3", wattage: 45, isOn: false, color: "#DF8F2A" }, 
         ]
     },
     {
