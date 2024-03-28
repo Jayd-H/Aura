@@ -40,21 +40,21 @@ const LightInfo: React.FC<LightInfoProps> = ({
   };
 
   return (
-    <div className="room-card bg-bwhite px-4 py-3 flex flex-col items-center font-montserrat text-bblack border-dashed border-2 border-bblack rounded-2xl">
+    <div className="bg-bwhite px-4 py-3 flex flex-col items-center font-montserrat text-bblack border-dashed border-2 border-bblack rounded-2xl">
       <div className="flex justify-between w-full">
         <PaletteOutlined />
         <FormatPaintOutlined />
       </div>
+      <h2 className="text-md italic text-center -mt-12 bg-bwhite">
+        Selected Light
+      </h2>
       {selectedLight ? (
         <>
-          <h2 className="-mt-6 mb-2 text-lg italic flex items-center justify-center">
-            Selected Light
-          </h2>
-          <h2 className="font-semibold font-comfortaa text-xl flex text-center items-center justify-center whitespace-nowrap overflow-hidden text-ellipsis">
+          <h2 className="font-semibold font-comfortaa text-xl flex text-center whitespace-nowrap overflow-hidden text-ellipsis">
             {selectedLight.name}
           </h2>
           <motion.div
-            whileHover={{ scale: 1.5, y: -20 }}
+            whileHover={{ scale: 1.1 }}
             transition={{
               duration: 0.2,
               type: "spring",
@@ -66,18 +66,14 @@ const LightInfo: React.FC<LightInfoProps> = ({
               <SketchPicker
                 color={color}
                 onChange={handleColorChange}
-                className="bg-white border-2 border-bblack scale-90 -mt-3"
+                className="bg-white border-2 border-bblack scale-100"
               />
             </div>
           </motion.div>
         </>
       ) : (
         <div className="text-center">
-          <h2 className="-mt-6 mb-2 text-lg italic flex justify-center">
-            Selected Light
-          </h2>
-
-          <h2 className=" mb-5 mt-5 text-lg italic flex justify-center font-comfortaa">
+          <h2 className=" mb-5 mt-16 px-4 text-lg italic flex justify-center font-comfortaa">
             Please select a light to set it's colour
           </h2>
           <DoubleArrow className="text-2xl mb-5" />
