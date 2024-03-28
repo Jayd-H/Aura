@@ -14,7 +14,7 @@ interface SavingsCardProps {
 
 const SavingsCard: React.FC<SavingsCardProps> = ({ value, unit, money }) => {
   return (
-    <motion.div className="flex-grow flex justify-center w-full lg:p-1">
+    <motion.div drag className="flex-grow flex justify-center w-full lg:p-1">
       <div className="grid grid-cols-3 lg:grid-cols-1 xl:-mx-10 items-center text-center font-montserrat lg:border-2 text-bblack border-t-2 lg:rounded-2xl border-bblack border-dashed px-4">
         <div>
           <div className="flex items-center">
