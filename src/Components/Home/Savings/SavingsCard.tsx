@@ -7,34 +7,40 @@ import { SavingsOutlined } from "@mui/icons-material";
 import { motion } from "framer-motion";
 
 interface SavingsCardProps {
-  title: string;
   value: number;
   unit: string;
   money: number;
 }
 
-const SavingsCard: React.FC<SavingsCardProps> = ({
-  title,
-  value,
-  unit,
-  money,
-}) => {
+const SavingsCard: React.FC<SavingsCardProps> = ({ value, unit, money }) => {
   return (
-    <motion.div drag>
-      <div className="savings-card flex-grow min-w-0 flex flex-col items-center font-montserrat text-bblack border-dashed border-2 border-bblack rounded-2xl p-2">
-        <div className="flex items-center justify-center w-full mt-2">
-          <WindPowerOutlined className="h-6 w-6 mr-2" />
-          <p className="text-xl font-bold mt-1 font-comfortaa">
-            {value} {unit}
+    <motion.div className="flex-grow flex justify-center w-full lg:p-1">
+      <div className="grid grid-cols-3 lg:grid-cols-1 xl:-mx-10 items-center text-center font-montserrat lg:border-2 text-bblack border-t-2 lg:rounded-2xl border-bblack border-dashed px-4">
+        <div>
+          <div className="flex items-center">
+            <WindPowerOutlined className="h-6 w-6 mr-2" />
+            <p className="md:text-lg text-md font-bold mt-1 font-comfortaa">
+              {value} {unit}
+            </p>
+          </div>
+          <p className="lg:text-md text-sm -mt-1 italic text-center">
+            Saved so far
           </p>
         </div>
-        <p className="text-md -mt-1 italic">{title}</p>
-        <CreditScoreOutlined className="h-12 w-12 mt-2" />
-        <div className="flex items-center justify-center w-full mt-2 ">
-          <SavingsOutlined className="h-6 w-6 mr-2" />
-          <p className="text-xl font-bold font-comfortaa">~ £{money}</p>
+        <div>
+          <CreditScoreOutlined className="h-12 w-12 mt-2" />
         </div>
-        <p className="text-md text-center italic">Saved so far</p>
+        <div className="">
+          <div className="flex ml-3">
+            <SavingsOutlined className="h-6 w-6 mr-2" />
+            <p className="md:text-lg text-md font-bold mt-1 font-comfortaa">
+              ~ £{money}
+            </p>
+          </div>
+          <p className="lg:text-md text-sm text-center -mt-1 italic">
+            Saved so far
+          </p>
+        </div>
       </div>
     </motion.div>
   );
