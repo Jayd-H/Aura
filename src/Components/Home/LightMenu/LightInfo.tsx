@@ -74,7 +74,7 @@ const LightInfo: React.FC<LightInfoProps> = ({
       ) : (
         <div className="text-center">
           <h2 className=" mb-5 mt-16 px-4 text-lg italic flex justify-center font-comfortaa">
-            Please select a light to set it's colour
+            Please select a light to set its colour
           </h2>
           <DoubleArrow className="text-2xl mb-5" />
         </div>
