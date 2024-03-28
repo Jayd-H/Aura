@@ -14,7 +14,7 @@ const RoomSelectButton: React.FC<RoomSelectButtonProps> = ({
 }) => {
   return (
     <button
-      className={`room-select-button border-2 rounded-full font-montserrat text-sm font-bold hover:bg-lr-gradient-blue hover:text-bwhite hover:border-bwhite hover:border-0 hover:shadow-lg ${
+      className={`h-8 border-2 rounded-full font-montserrat text-sm font-bold hover:bg-lr-gradient-blue hover:text-bwhite hover:border-bwhite hover:border-0 hover:shadow-lg ${
         isSelected ? "text-bwhite bg-lr-gradient" : "border-bpurple"
       }`}
       onClick={() => onClick(room)}
