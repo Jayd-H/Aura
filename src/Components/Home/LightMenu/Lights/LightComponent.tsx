@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import type { Light, Room } from "../../types";
+import type { Light } from "../../types";
 import {
   LightbulbOutlined,
   FlashOnOutlined,
@@ -7,7 +7,10 @@ import {
   PowerSettingsNewOutlined,
 } from "@mui/icons-material";
 import LightIcon from "./LightIcon";
+import LightOnIcon from "./LightOnIcon";
 import LightButton from "./LightButton";
+
+import { motion, AnimatePresence } from "framer-motion";
 
 interface LightProps {
   light: Light;
@@ -25,8 +28,7 @@ const LightComponent: React.FC<LightProps> = ({
   const [lightColor, setLightColor] = useState(
     light.isOn ? light.color : "#D3D3D3"
   );
-  const textColor =
-    light.isOn && isColorDark(lightColor) ? "#ECEBF9" : "#333040";
+  const textColor = isColorDark(lightColor) ? "#ECEBF9" : "#333040";
 
   useEffect(() => {
     setLightColor(light.isOn ? light.color : "#D3D3D3");
@@ -46,14 +48,11 @@ const LightComponent: React.FC<LightProps> = ({
     onLightSelect(light);
   };
 
-  function isColorDark(color: string): boolean {
-    const hex = color.replace("#", "");
-    const r = parseInt(hex.substring(0, 2), 16);
-    const g = parseInt(hex.substring(2, 4), 16);
-    const b = parseInt(hex.substring(4, 6), 16);
-    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-    return brightness < 128;
-  }
+  const iconVariants = {
+    initial: { opacity: 0, y: -10 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 10 },
+  };
 
   return (
     <div
@@ -74,15 +73,39 @@ const LightComponent: React.FC<LightProps> = ({
         </button>
       </div>
       <div className="-mt-14 -mb-12">
-        <LightIcon color={textColor} />
+        {light.isOn ? (
+          <LightOnIcon color={textColor} />
+        ) : (
+          <LightIcon color={textColor} />
+        )}
       </div>
       <button onClick={handleToggle} className="border-none cursor-pointer">
         <div className="mt-16 mb-2">
-          {light.isOn ? (
-            <FlashOnOutlined className="h-7 w-7" />
-          ) : (
-            <FlashOffOutlined className="h-7 w-7" />
-          )}
+          <AnimatePresence mode="wait">
+            {light.isOn ? (
+              <motion.div
+                key="on"
+                variants={iconVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ duration: 0.1 }}
+              >
+                <FlashOnOutlined className="h-7 w-7" />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="off"
+                variants={iconVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ duration: 0.1 }}
+              >
+                <FlashOffOutlined className="h-7 w-7" />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </button>
       <div className="text-center">
@@ -93,5 +116,15 @@ const LightComponent: React.FC<LightProps> = ({
     </div>
   );
 };
+
+// Helper function to determine if a color is dark
+function isColorDark(color: string): boolean {
+  const hex = color.replace("#", "");
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+  return brightness < 80;
+}
 
 export default LightComponent;
