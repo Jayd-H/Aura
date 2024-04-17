@@ -11,46 +11,42 @@ interface InputFieldProps {
 }
 
 const focusStyle = `
-  focus:ring-0 
+  focus:ring-0
   focus:border-0
   focus:outline-none
 `;
 
-export const InputField: React.FC<InputFieldProps> = ({
-  label,
-  type,
-  placeholder,
-  required,
-  value,
-  onChange,
-}) => {
-  const icon =
-    type === "email" ? (
-      <EnvelopeIcon className="w-5 h-5 text-bblack" />
-    ) : (
-      <LockClosedIcon className="w-5 h-5 text-bblack" />
-    );
+export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
+  ({ label, type, placeholder, required, value, onChange }, ref) => {
+    const icon =
+      type === "email" ? (
+        <EnvelopeIcon className="w-5 h-5 text-bblack" />
+      ) : (
+        <LockClosedIcon className="w-5 h-5 text-bblack" />
+      );
 
-  return (
-    <div className="relative w-3/4 mb-4 mt-6">
-      <div
-        className={`bg-lr-gradient rounded-md p-1/2 hover:bg-lr-gradient-blue focus:bg-lr-gradient-blue ${focusStyle}`}
-      >
-        <div className="flex items-center bg-bwhite rounded-md">
-          <input
-            type={type}
-            placeholder=" "
-            className={`w-full px-4 py-2 rounded-md bg-bwhite font-montserrat text-base ${focusStyle}`}
-            required={required}
-            value={value}
-            onChange={onChange}
-          />
-          <span className="mr-4">{icon}</span>
+    return (
+      <div className="relative w-3/4 mb-4 mt-6">
+        <div
+          className={`bg-lr-gradient rounded-md p-1/2 hover:bg-lr-gradient-blue ${focusStyle}`}
+        >
+          <div className="flex items-center bg-white rounded-md">
+            <input
+              type={type}
+              placeholder={placeholder}
+              className={`w-full px-4 py-2 rounded-md bg-white font-montserrat text-base ${focusStyle}`}
+              required={required}
+              value={value}
+              onChange={onChange}
+              ref={ref}
+            />
+            <span className="mr-4">{icon}</span>
+          </div>
         </div>
+        <label className="absolute top-0 -mt-4 left-2 bg-bwhite border-b-2 border-bblack px-1 border-dashed text-bblack text-sm font-montserrat font-semibold">
+          {label}
+        </label>
       </div>
-      <label className="absolute top-0 -mt-2 left-4 bg-bwhite text-bblack text-sm font-montserrat font-semibold">
-        {label}
-      </label>
-    </div>
-  );
-};
+    );
+  }
+);
