@@ -35,7 +35,7 @@ export default {
         'even': '0 0 6px rgba(0, 0, 0, 0.25)',
      },
 			 backgroundImage: theme => ({
-        'aura-gradient': `radial-gradient(circle at top left, ${theme('colors.bpink')}, ${theme('colors.bpink')} 60%, ${theme('colors.bpurple')} 100%)`,
+        'aura-gradient': `radial-gradient(circle at top left, ${theme('colors.bpink')}, ${theme('colors.bpink')} 85%, ${theme('colors.bpurple')} 100%)`,
         'lr-gradient': `linear-gradient(to right, ${theme('colors.bpink')}, ${theme('colors.bpurple')})`,
         'tb-gradient': `linear-gradient(to bottom, ${theme('colors.bpink')}, ${theme('colors.bpurple')})`,
         'bt-gradient': `linear-gradient(to top, ${theme('colors.bpink')}, ${theme('colors.bpurple')})`,
