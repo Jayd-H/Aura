@@ -6,7 +6,6 @@ export const PasswordStrengthBar: React.FC<{
   strengthCalculator: (password: string) => number;
 }> = ({ password, strengthCalculator }) => {
   const strength = strengthCalculator(password);
-
   const barVariants = {
     hidden: { width: "0%" },
     visible: { width: `${strength}%` },
@@ -18,7 +17,8 @@ export const PasswordStrengthBar: React.FC<{
         Password Strength
       </label>
       <div className="bg-lr-gradient rounded-md p-1/2">
-        <div className="flex items-center bg-bwhite rounded-sm">
+        <div className="flex items-center bg-white rounded-sm relative">
+          <div className="absolute left-1/3 w-[2px] h-full bg-bpink"></div>
           <div className="w-full rounded-md font-montserrat text-base">
             <div className="h-3 rounded-full">
               <motion.div
