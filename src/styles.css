@@ -24,7 +24,7 @@
         left: 50%;
         width: 100vw;
         height: calc(100% + 20px);
-        background-color: #DDDCEE;
+        background-color: #f0f3f7;
         transform: translateX(-50%);
         z-index: -1;
     }
