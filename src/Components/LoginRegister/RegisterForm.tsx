@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { InputField } from "./InputField";
 import { Button } from "../Button";
 import { Divider } from "./Divider";
@@ -8,10 +8,8 @@ const calculateStrength = (password: string) => {
   const length = password.length;
   let meter = 0;
   if (length === 0) return 0;
-  meter = length * 6;
-  if (meter > 100) {
-    meter = 100;
-  }
+  meter = (length / 20) * 100;
+  if (meter > 100) return 100;
   return meter;
 };
 
@@ -19,8 +17,10 @@ export const RegisterForm: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  const emailInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const isMatch = password === confirmPassword;
@@ -28,19 +28,20 @@ export const RegisterForm: React.FC = () => {
       email.length >= 5 && password.length >= 5 && confirmPassword.length >= 5;
     const strength = calculateStrength(password);
 
-    setPasswordError(isMatch ? "" : "Passwords do not match!");
-    setIsButtonDisabled(!(isMatch && isValidLength && strength >= 20));
+    if (strength < 33.33) {
+      setErrorMessage("Password is too weak!");
+    } else if (!isMatch) {
+      setErrorMessage("Passwords do not match!");
+    } else {
+      setErrorMessage("");
+    }
+
+    setIsButtonDisabled(!(isMatch && isValidLength && strength >= 33.33));
   }, [email, password, confirmPassword]);
 
-  const checkPasswordMatch = () => {
-    if (password !== confirmPassword) {
-      console.log("Passwords do not match!");
-      setPasswordError("Passwords do not match!");
-    } else {
-      console.log("Passwords match!");
-      setPasswordError("");
-    }
-  };
+  useEffect(() => {
+    emailInputRef.current?.focus();
+  }, []);
 
   const handlePasswordChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -48,13 +49,9 @@ export const RegisterForm: React.FC = () => {
   ) => {
     const newValue = e.target.value;
     if (isConfirm) {
-      console.log("Confirm Password: ", newValue);
       setConfirmPassword(newValue);
-      checkPasswordMatch();
     } else {
-      console.log("else: ", newValue);
       setPassword(newValue);
-      checkPasswordMatch();
     }
   };
 
@@ -74,13 +71,16 @@ export const RegisterForm: React.FC = () => {
             type="email"
             required
             value={email}
+            placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
+            ref={emailInputRef}
           />
           <InputField
             label="Password"
             type="password"
             required
             value={password}
+            placeholder="Password"
             onChange={(e) => handlePasswordChange(e, false)}
           />
           <InputField
@@ -88,6 +88,7 @@ export const RegisterForm: React.FC = () => {
             type="password"
             required
             value={confirmPassword}
+            placeholder="Confirm Password"
             onChange={(e) => handlePasswordChange(e, true)}
           />
           <PasswordStrengthBar
@@ -96,11 +97,11 @@ export const RegisterForm: React.FC = () => {
           />
           <div
             className={`text-red-500 text-sm font-semibold italic mt-1 ${
-              passwordError ? "" : "opacity-0"
+              errorMessage ? "" : "opacity-0"
             }`}
             style={{ minHeight: "20px" }}
           >
-            {passwordError || " "}
+            {errorMessage || " "}
           </div>
 
           <div className="mt-2">
