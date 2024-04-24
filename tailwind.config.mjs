@@ -13,9 +13,9 @@ export default {
         '8xl': '88rem',
       },
 			colors: {
-				'bwhite': '#ECEBF9',
+				'bwhite': '#fafcff',
 				'bblack': '#333040',
-        'bgrey': '##CA6EEB',
+        'bgrey': '#e6ecf5',
         'bdarkgrey': '#555263',
 				'bblue': '#8A70FF',
 				'bpurple': '#CA6EEB',
