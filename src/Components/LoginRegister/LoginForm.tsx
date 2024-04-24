@@ -18,7 +18,7 @@ export const LoginForm: React.FC = () => {
         </h2>
         <Divider />
         <p className="text-bblack text-lg mb-6 mr-20 ml-20">
-          <i>Input your login details to continue</i>
+          <i>Please sign in with your Aura account</i>
         </p>
         <div className="flex flex-col items-center w-full">
           <InputField
@@ -53,7 +53,7 @@ export const LoginForm: React.FC = () => {
         </div>
         <p className="text-bblack text-sm mt-6 font-semibold">
           Don't have an account?{" "}
-          <a href="register" className="text-bpurple hover:underline">
+          <a href="register" className="text-bpurple text-md hover:underline">
             Register
           </a>
         </p>
