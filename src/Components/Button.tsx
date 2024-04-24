@@ -31,7 +31,7 @@ export const Button: React.FC<ButtonProps> = ({
         disabled
           ? "bg-gray-400 cursor-not-allowed"
           : "bg-bt-gradient hover:bg-tb-gradient-blue"
-      } text-bwhite py-2 px-4 rounded-lg font-montserrat text-lg font-semibold w-3/4 shadow-inner transition duration-300 ease-in-out ${className}`}
+      } text-bwhite py-2 px-4 rounded-lg font-montserrat text-lg font-semibold w-3/4 shadow-inner transition hover:shadow-lg duration-300 ease-in-out ${className}`}
     >
       {text}
     </motion.button>
